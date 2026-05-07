@@ -3,12 +3,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-top: 80px;
-  gap: 60px;
+  padding-top: 60px;
+  gap: 36px;
 }
 
 .s-patent .head {
-  font-size: 100px;
+  font-size: 88px;
   line-height: 0.9;
   margin: 0;
   text-align: left;
@@ -18,23 +18,23 @@
 .s-patent .patent-grid {
   display: flex;
   flex-direction: row;
-  gap: 100px;
+  gap: 80px;
   align-items: flex-start;
   width: 100%;
 }
 
 /* -- Left column: Documento da Patente -- */
 .s-patent .patent-left {
-  flex: 0 0 600px;
+  flex: 0 0 460px;
   display: flex;
   justify-content: center;
 }
 
 .s-patent .patent-doc {
-  background: #fdfdfb; /* Slightly off-white/paper */
-  width: 540px;
-  height: 764px; /* width * 1.41428571429 */
-  padding: 60px 50px;
+  background: #fdfdfb;
+  width: 420px;
+  height: 594px; /* width * 1.41428571429 */
+  padding: 40px 38px;
   box-shadow: 
     0 30px 80px rgba(0,0,0,0.3),
     0 0 0 1px rgba(0,0,0,0.05);
@@ -50,8 +50,8 @@
 
 /* Carimbo - Top Right Overlap */
 .s-patent .carimbo {
-  width: 90px;
-  height: 90px;
+  width: 76px;
+  height: 76px;
   border: 2px double #A12B2B;
   display: flex;
   align-items: center;
@@ -60,11 +60,9 @@
   border-radius: 50%;
   box-shadow: #A12B2B0D 0px 0px 0px 4px inset;
   position: absolute;
-  top: 40px;
-  right: 32px;
-  bottom: 515.5px;
-  left: 426px;
-  font-size: 11px;
+  top: 30px;
+  right: 24px;
+  font-size: 10px;
   font-family: var(--mono);
   font-weight: 700;
   text-align: center;
@@ -73,16 +71,16 @@
   letter-spacing: 1.1px;
   pointer-events: none;
   z-index: 10;
-  transform: rotate(-15deg); /* Added tilt for realism */
+  transform: rotate(-15deg);
 }
 
 /* Document Content */
 .s-patent .doc-title {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #000;
   padding: 0 10px;
   letter-spacing: -0.01em;
@@ -90,20 +88,20 @@
 
 .s-patent .doc-body {
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 15px;
   line-height: 1.45;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   text-align: justify;
 }
 
 .s-patent .doc-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 16px;
   width: 100%;
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .s-patent .doc-field {
@@ -114,7 +112,7 @@
 
 .s-patent .field-label {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 8px;
   text-transform: uppercase;
   color: #999;
   letter-spacing: 0.1em;
@@ -123,7 +121,7 @@
 
 .s-patent .field-value {
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
   color: #111;
 }
@@ -131,7 +129,7 @@
 .s-patent .doc-field.full {
   grid-column: span 2;
   border-top: 1px solid #eee;
-  padding-top: 16px;
+  padding-top: 12px;
 }
 
 /* Barcode */
@@ -140,53 +138,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding-bottom: 5px;
+  gap: 5px;
+  padding-bottom: 4px;
 }
 
 .s-patent .barcode-img {
-  width: 200px;
-  height: 45px;
+  width: 160px;
+  height: 36px;
   background: repeating-linear-gradient(to right, #000, #000 1.5px, transparent 1.5px, transparent 5px);
 }
 
 .s-patent .barcode-text {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 11px;
   color: #777;
   letter-spacing: 0.12em;
 }
 
-/* -- Right column: Metodology content -- */
+/* -- Right column: Methodology content -- */
 .s-patent .patent-right {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   max-width: 1000px;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .s-patent .lead {
-  font-size: 28px;
+  font-size: 26px;
   color: var(--dim);
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   text-align: left;
 }
 
 .s-patent .principles {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .s-patent .principle {
   display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 24px;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
   align-items: flex-start;
-  padding: 24px 32px;
+  padding: 20px 28px;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -203,10 +201,10 @@
 
 .s-patent .princ-num {
   font-family: var(--serif);
-  font-size: 64px;
+  font-size: 52px;
   color: var(--amber);
   line-height: 1;
-  margin-top: -6px;
+  margin-top: -4px;
 }
 
 .s-patent .princ-content {
@@ -218,59 +216,13 @@
 
 .s-patent .princ-title {
   font-family: var(--sans);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 600;
   color: var(--white);
 }
 
 .s-patent .princ-text {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--dim);
   line-height: 1.45;
-}
-
-/* Legal / Royalty Box */
-.s-patent .legal-box {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 20px;
-  padding: 28px;
-  background: rgba(10,30,80,0.2);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--r);
-  margin-top: 4px;
-}
-
-.s-patent .legal-icon {
-  width: 36px;
-  height: 36px;
-  color: var(--amber);
-  opacity: 0.7;
-}
-
-.s-patent .legal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-align: left;
-}
-
-.s-patent .legal-head {
-  font-family: var(--mono);
-  font-size: 14px;
-  color: var(--amber);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.s-patent .legal-text {
-  font-size: 20px;
-  color: var(--dim);
-  line-height: 1.4;
-}
-
-.s-patent .legal-text strong {
-  color: var(--white);
-  font-weight: 600;
 }
