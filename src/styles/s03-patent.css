@@ -217,13 +217,13 @@
 
 .s-patent .princ-title {
   font-family: var(--sans);
-  font-size: 26px;
+  font-size: 34px;
   font-weight: 600;
   color: var(--white);
 }
 
 .s-patent .princ-text {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--dim);
   line-height: 1.45;
 }
