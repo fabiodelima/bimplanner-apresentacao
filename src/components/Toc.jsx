@@ -10,6 +10,11 @@ const LABELS = {
 export default function Toc({ deckRef, currentIndex }) {
   const [open, setOpen] = useState(false);
 
+  // Sync body class so chrome.css can hide chips when TOC is open
+  useEffect(() => {
+    document.body.classList.toggle('toc-open', open);
+  }, [open]);
+
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 't' || e.key === 'T') setOpen(v => !v);

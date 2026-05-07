@@ -23,6 +23,14 @@
   opacity: 1;
 }
 
+/* Hide chips (header + footer badge) when TOC is open — logo is exempt */
+body.toc-open .chrome-header,
+body.toc-open .chrome-footer-badge {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity .25s ease;
+}
+
 /* 1. Header Badge: Top Left of screen */
 .chrome-header {
   top: 40px !important;
