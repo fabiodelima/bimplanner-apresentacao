@@ -85,20 +85,6 @@ export default function S03Patent() {
                 </div>
               </div>
             </div>
-
-            <div className="legal-box">
-              <svg className="legal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M16 16v1a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2h2m5.66 0H14a2 2 0 012 2v8m-7.66 0H7a2 2 0 01-2-2V7a2 2 0 012-2h.66" />
-                <path d="M12 3v18M9 7h6M9 11h6M11 16h2" />
-              </svg>
-              <div className="legal-body">
-                <div className="legal-head">Propriedade Intelectual · P5</div>
-                <p className="legal-text">
-                  A patente protege o método (caderneta física). O BIMPlanner adiciona automação (Revit + IA) de forma autônoma. 
-                  Operamos via <strong>acordo de licenciamento de uso</strong> da patente.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
