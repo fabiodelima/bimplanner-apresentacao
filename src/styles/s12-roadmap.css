@@ -1,0 +1,116 @@
+.roadmap-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.roadmap-head {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.roadmap-title {
+  max-width: 1100px;
+  margin: 0;
+}
+
+.roadmap-lead {
+  max-width: 860px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.roadmap-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmap-now-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bp4);
+  background: var(--amber);
+  border-radius: 100px;
+  padding: 4px 14px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.roadmap-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 28px 32px;
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.roadmap-card--active {
+  background: var(--glass-bg-strong);
+  border-color: rgba(232, 201, 122, 0.3);
+}
+
+.roadmap-period {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.roadmap-card-title {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.roadmap-card--active .roadmap-card-title {
+  color: var(--amber);
+}
+
+.roadmap-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roadmap-items li {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dim);
+  line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+
+.roadmap-items li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--faint);
+}

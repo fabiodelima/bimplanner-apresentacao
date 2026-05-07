@@ -1,0 +1,67 @@
+/* ─── Fonts ─── */
+@font-face { font-family:'DM Mono'; font-style:normal; font-weight:400; font-display:swap; src:url('../../v4/fonts/dm-mono-400.ttf') format('truetype'); }
+@font-face { font-family:'DM Mono'; font-style:normal; font-weight:500; font-display:swap; src:url('../../v4/fonts/dm-mono-500.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:300; font-display:swap; src:url('../../v4/fonts/dm-sans-300.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:400; font-display:swap; src:url('../../v4/fonts/dm-sans-400.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:500; font-display:swap; src:url('../../v4/fonts/dm-sans-500.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:600; font-display:swap; src:url('../../v4/fonts/dm-sans-600.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:700; font-display:swap; src:url('../../v4/fonts/dm-sans-700.ttf') format('truetype'); }
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:800; font-display:swap; src:url('../../v4/fonts/dm-sans-800.ttf') format('truetype'); }
+@font-face { font-family:'DM Serif Display'; font-style:normal; font-weight:400; font-display:swap; src:url('../../v4/fonts/dm-serif-400.ttf') format('truetype'); }
+@font-face { font-family:'DM Serif Display'; font-style:italic; font-weight:400; font-display:swap; src:url('../../v4/fonts/dm-serif-400i.ttf') format('truetype'); }
+
+/* ─── Design tokens ─── */
+:root {
+  /* Brand */
+  --bp:    #4474c5;
+  --bp2:   #3a62a3;
+  --bp3:   #32528a;
+  --bp4:   #29487a;
+
+  /* Lines */
+  --line:  rgba(10,30,80,.08);
+  --lineB: rgba(10,30,80,.15);
+  --lineC: rgba(10,30,80,.32);
+
+  /* Accent */
+  --amber:  #e8c97a;
+  --amberD: #b89a3a;
+  --amberG: rgba(232,201,122,.15);
+  --amberB: rgba(232,201,122,.35);
+
+  /* Blue */
+  --blue:  #a8c0e0;
+  --blueG: rgba(168,192,224,0.1);
+
+  /* Text */
+  --white: #f8faff;
+  --dim:   rgba(248,250,255,0.75);
+  --faint: rgba(248,250,255,0.45);
+  --muted: rgba(248,250,255,0.30);
+
+  /* Status */
+  --green: #6bcf7f;
+  --red:   #ff6b6b;
+
+  /* Glass */
+  --glass-bg:        rgba(255,255,255,0.09);
+  --glass-bg-strong: rgba(255,255,255,0.14);
+  --glass-border:    rgba(255,255,255,0.18);
+  --glass-blur:      blur(28px);
+  --glass-shadow:    0 4px 20px rgba(0,0,0,0.18), 0 16px 48px rgba(0,0,0,0.12);
+  --glass-highlight: rgba(255,255,255,0.22);
+  --glass-inset:     inset 0 1px 0 rgba(255,255,255,0.22);
+
+  /* Motif */
+  --motif-grid-opacity: 1;
+  --motif-dots-opacity: 0;
+
+  /* Type */
+  --serif: 'DM Serif Display', serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'DM Mono', monospace;
+
+  /* Shape */
+  --r:   14px;
+  --rsm:  8px;
+}

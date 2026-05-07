@@ -1,0 +1,205 @@
+/* ─── S09: Modelo de Negócio ─── */
+.s-business .slide-inner {
+  padding-top: 72px;
+  padding-bottom: 80px;
+  gap: 0;
+}
+
+.s-business .biz-top {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.s-business .biz-top .head {
+  margin-bottom: 0;
+  font-size: 80px;
+}
+
+.s-business .biz-lead {
+  font-size: 22px;
+  color: var(--dim);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 1360px;
+}
+
+.s-business .biz-lead strong { color: var(--white); font-weight: 500; }
+
+.s-business .biz-hint {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* ── Plans grid ── */
+.s-business .biz-plans {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: 28px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Plan card ── */
+.s-business .biz-plan {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r);
+  box-shadow: var(--glass-inset), var(--glass-shadow);
+  padding: 36px 38px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.s-business .biz-plan:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glass-inset), 0 8px 32px rgba(0,0,0,0.28), 0 24px 64px rgba(0,0,0,0.18);
+}
+
+.s-business .biz-plan.featured {
+  background: var(--glass-bg-strong);
+  border-color: rgba(232,201,122,0.3);
+}
+
+.s-business .biz-plan.featured::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(232,201,122,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Badge "Mais popular · PLG" */
+.s-business .biz-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  background: rgba(232,201,122,0.12);
+  border: 1px solid rgba(232,201,122,0.3);
+  border-radius: 100px;
+  padding: 4px 14px;
+  margin-bottom: 16px;
+}
+
+.s-business .biz-badge-placeholder {
+  height: 27px;
+  margin-bottom: 16px;
+}
+
+/* Plan name */
+.s-business .biz-plan-name {
+  font-family: var(--serif);
+  font-size: 38px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+/* Price */
+.s-business .biz-price {
+  font-family: var(--serif);
+  font-size: 72px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(232,201,122,0.2);
+  margin-bottom: 8px;
+}
+
+.s-business .biz-price-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--faint);
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+/* Divider */
+.s-business .biz-divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin-bottom: 22px;
+}
+
+/* Feature list */
+.s-business .biz-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.s-business .biz-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--dim);
+  line-height: 1.4;
+}
+
+.s-business .biz-feature.on { color: var(--white); }
+.s-business .biz-feature.on.bold { font-weight: 600; }
+.s-business .biz-feature.off { color: var(--muted); }
+
+.s-business .biz-feat-icon {
+  font-family: var(--mono);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  width: 16px;
+}
+
+.s-business .biz-feature.on  .biz-feat-icon { color: var(--green); }
+.s-business .biz-feature.off .biz-feat-icon { color: var(--muted); }
+
+/* ── Hover rationale overlay ── */
+.s-business .biz-rationale {
+  position: absolute;
+  inset: 0;
+  background: rgba(36,60,110,0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--r);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 38px;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.s-business .biz-plan:hover .biz-rationale {
+  opacity: 1;
+}
+
+.s-business .biz-rationale-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  text-transform: uppercase;
+}
+
+.s-business .biz-rationale-text {
+  font-size: 20px;
+  color: var(--white);
+  line-height: 1.6;
+  font-weight: 300;
+}

@@ -1,0 +1,134 @@
+/* ─── S02: O Problema ─── */
+.s-problem .slide-inner {
+  flex-direction: row;
+  gap: 80px;
+  align-items: center;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+/* ── Left column: chip + heading + cards ── */
+.s-problem .prob-left {
+  flex: 0 0 1020px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.s-problem .prob-left .head {
+  font-size: 86px;
+  margin-bottom: 36px;
+  text-align: left;
+}
+
+/* ── Stacked problem cards with icons ── */
+.s-problem .prob-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.s-problem .prob-card {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-left: 5px solid var(--amber);
+  border-top:    1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-right:  1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 22px 32px;
+  box-shadow: var(--glass-inset), var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.s-problem .prob-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 140px;
+  background: linear-gradient(to right, rgba(232,201,122,0.09), transparent);
+  pointer-events: none;
+}
+
+.s-problem .prob-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--amber);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.s-problem .prob-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.s-problem .prob-title {
+  font-family: var(--sans);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.s-problem .prob-desc {
+  font-size: 22px;
+  color: var(--dim);
+  line-height: 1.5;
+}
+
+/* ── Right column: stat grid ── */
+.s-problem .prob-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.s-problem .prob-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--lineB);
+}
+
+.s-problem .prob-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 42px 0;
+  border-bottom: 1px solid var(--lineB);
+}
+
+.s-problem .stat-n {
+  font-family: var(--serif);
+  font-size: 82px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-shadow: 0 2px 20px rgba(232,201,122,0.22);
+}
+
+.s-problem .prob-stat.highlight .stat-n {
+  font-size: 110px;
+  text-shadow: 0 2px 28px rgba(232,201,122,0.38);
+}
+
+.s-problem .stat-l {
+  font-family: var(--mono);
+  font-size: 19px;
+  color: var(--faint);
+  letter-spacing: .06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}

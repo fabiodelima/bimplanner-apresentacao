@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIMPlanner — Pitch · Banca PCI0031</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/chrome.css">
+<link rel="stylesheet" href="css/s01-cover.css">
+<link rel="stylesheet" href="css/s02-problem.css">
+</head>
+<body>
+
+<button class="toc-btn" id="tocBtn" title="Sumário (T)">
+  <span class="toc-bars"><span></span><span></span><span></span></span>
+  Sumário
+</button>
+
+<div class="toc-overlay" id="tocOverlay">
+  <div class="toc-panel">
+    <div class="toc-mark">BIM<span>Planner</span></div>
+    <div class="toc-mark-sub">Pitch · Banca PCI0031 · Maio 2026</div>
+    <div class="toc-list" id="tocList"></div>
+    <div class="toc-foot">
+      <kbd>←</kbd> <kbd>→</kbd> navegar &nbsp;·&nbsp; <kbd>T</kbd> sumário &nbsp;·&nbsp; <kbd>Esc</kbd> fechar
+    </div>
+  </div>
+</div>
+
+<div id="nav-hint">← → navegar · T sumário</div>
+
+<div id="deck-stage">
+  <div id="deck-canvas">
+
+    <!-- ═══ 01 · CAPA ═══ -->
+    <section class="slide s-cover active" data-toc="Capa" data-toctag="pitch">
+      <div class="cover-orb"></div>
+      <div class="cover-orb2"></div>
+      <div class="capa-inner">
+        <div class="capa-logo">
+          <span class="bim">BIM</span><span class="planner">Planner</span>
+        </div>
+        <div class="capa-line"></div>
+        <p class="capa-sub">Gestão inteligente de projetos AEC</p>
+        <p class="capa-team">Fábio · Franciele · Louise · Pâmela · Piero · Valentina</p>
+        <p class="capa-footer">PPGCI / UFRGS &nbsp;·&nbsp; PCI0031 &nbsp;·&nbsp; Maio 2026</p>
+      </div>
+    </section>
+
+    <!-- ═══ 02 · O PROBLEMA ═══ -->
+    <section class="slide s-problem" data-toc="O Problema" data-toctag="pitch">
+      <div class="slide-inner">
+
+        <!-- Left: editorial typography + KPIs -->
+        <div class="prob-left">
+          <div class="chip" data-n="02">O Problema</div>
+          <h2 class="head">Por que o setor AEC<br>ainda usa <em>planilha?</em></h2>
+          <div class="prob-stats">
+            <div class="prob-stat">
+              <span class="stat-n">180k+</span>
+              <span class="stat-l">escritórios AEC no Brasil<br>sem solução vertical</span>
+            </div>
+            <div class="prob-stat">
+              <span class="stat-n">Dec. 9.983</span>
+              <span class="stat-l">BIM obrigatório em<br>obras públicas federais</span>
+            </div>
+            <div class="prob-stat highlight">
+              <span class="stat-n">0</span>
+              <span class="stat-l">concorrentes diretos<br>nativos BIM na LATAM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: stacked numbered problem cards -->
+        <div class="prob-right">
+          <div class="prob-card">
+            <span class="prob-n">01</span>
+            <div class="prob-body">
+              <div class="prob-title">Sem linguagem AEC</div>
+              <p class="prob-desc">Trello, MS Project e planilhas não entendem fases de anteprojeto, disciplinas ou compatibilização BIM.</p>
+            </div>
+          </div>
+          <div class="prob-card">
+            <span class="prob-n">02</span>
+            <div class="prob-body">
+              <div class="prob-title">Gestão por improviso</div>
+              <p class="prob-desc">WhatsApp, e-mail e controle manual. Sem visibilidade de progresso em tempo real.</p>
+            </div>
+          </div>
+          <div class="prob-card">
+            <span class="prob-n">03</span>
+            <div class="prob-body">
+              <div class="prob-title">Sem integração BIM</div>
+              <p class="prob-desc">O modelo 3D existe em uma ilha. As tarefas de gestão existem em outra. Zero conexão.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="slide-meta">
+        <div class="meta-l"><span class="meta-tag pitch">Pitch · O Problema</span></div>
+        <div class="logo-mark">BIM<span>Planner</span></div>
+      </div>
+    </section>
+
+  </div><!-- #deck-canvas -->
+</div><!-- #deck-stage -->
+
+<script src="js/deck.js"></script>
+<script src="js/toc.js"></script>
+</body>
+</html>

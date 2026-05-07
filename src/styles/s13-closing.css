@@ -1,0 +1,130 @@
+/* ─── S13 Closing ─── */
+
+/* Orbs */
+.closing-orb {
+  position: absolute;
+  top: -180px; right: -120px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(232,201,122,0.22) 0%, transparent 70%);
+  pointer-events: none; z-index: 1;
+}
+.closing-orb2 {
+  position: absolute;
+  bottom: -200px; left: -100px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(168,192,224,0.18) 0%, transparent 70%);
+  pointer-events: none; z-index: 1;
+}
+
+/* Main container — centered */
+.closing-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 90px 110px 130px;
+  text-align: center;
+}
+
+/* Title block */
+.closing-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 0.95;
+}
+
+.closing-obrigado {
+  font-family: var(--serif);
+  font-size: 130px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+
+.closing-perguntas {
+  font-family: var(--serif);
+  font-size: 130px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+.closing-perguntas em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+/* Lead */
+.closing-lead {
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--dim);
+  max-width: 860px;
+  text-align: center;
+}
+.closing-lead strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* CTA logo link */
+.closing-cta {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.closing-cta:hover { opacity: 0.75; }
+
+.closing-cta-logo {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 64px;
+  color: var(--white);
+  letter-spacing: -.02em;
+  line-height: 1;
+  filter: drop-shadow(0 2px 16px rgba(0,0,0,0.25));
+}
+.closing-cta-logo em {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--amber);
+  margin-left: 2px;
+}
+
+.closing-cta-domain {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--faint);
+  padding-bottom: 10px;
+}
+
+/* Footer */
+.closing-footer {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+}

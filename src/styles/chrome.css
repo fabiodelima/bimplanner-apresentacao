@@ -1,0 +1,151 @@
+/* ─── Global Chrome UI (Viewport Fixed) ─── */
+.chrome-ui {
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 9999 !important; /* Top layer */
+  /* Prevent browser zoom from affecting scale if --browser-zoom is provided */
+  --z-scale: calc(1 / var(--browser-zoom, 1));
+}
+
+/* Common transition for all chrome elements */
+.chrome-header, 
+.chrome-footer-badge, 
+.chrome-logo {
+  position: fixed !important; /* Relative to viewport */
+  opacity: 0;
+  transition: opacity .6s ease, transform .6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chrome-header.visible,
+.chrome-footer-badge.visible,
+.chrome-logo.visible {
+  opacity: 1;
+}
+
+/* 1. Header Badge: Top Left of screen */
+.chrome-header {
+  top: 40px !important;
+  left: 60px !important;
+  transform: translateY(-15px) scale(var(--z-scale));
+  transform-origin: top left;
+}
+.chrome-header.visible { transform: translateY(0) scale(var(--z-scale)); }
+
+/* 2. Footer Badge: Bottom Left of screen */
+.chrome-footer-badge {
+  bottom: 40px !important;
+  left: 60px !important;
+  transform: translateY(15px) scale(var(--z-scale));
+  transform-origin: bottom left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chrome-footer-badge.visible { transform: translateY(0) scale(var(--z-scale)); }
+
+/* 3. Logo: Bottom Right of screen */
+.chrome-logo {
+  bottom: 40px !important;
+  right: 60px !important;
+  transform: translateY(15px) scale(var(--z-scale));
+  transform-origin: bottom right;
+}
+.chrome-logo.visible { transform: translateY(0) scale(var(--z-scale)); }
+
+/* ─── Components ─── */
+
+/* Reduced Logo Size (-20%) & Softer Shadow */
+.logo-mark {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 42px; /* Reduced by ~20% from 52px */
+  color: var(--white);
+  letter-spacing: -.02em;
+  line-height: 1;
+  text-transform: none;
+  pointer-events: auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15)); /* Softer shadow */
+}
+.logo-mark span {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--amber);
+  font-style: italic;
+  margin-left: 2px;
+}
+
+/* Reduced Footer Tag Size (-20%) & Softer Shadow */
+.meta-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px; /* Reduced by ~20% from 16px */
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 8px 20px; /* Reduced padding */
+  border-radius: 100px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Softer shadow */
+  pointer-events: auto;
+}
+.meta-tag.pitch { color: var(--amber); border-color: rgba(232,201,122,0.50); }
+.meta-tag.acad  { color: #7db8e8;     border-color: rgba(125,184,232,0.45); }
+
+.presenter-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: var(--dim);
+  pointer-events: auto;
+}
+
+/* Reduced Chip Size (-20%) & Softer Shadow */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* Reduced gap */
+  font-family: var(--mono);
+  font-size: 13px; /* Reduced by ~20% from 16px */
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(168,192,224,0.15);
+  border: 1px solid rgba(168,192,224,0.3);
+  padding: 6px 16px 6px 6px; /* Reduced padding */
+  border-radius: 100px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Softer shadow */
+  pointer-events: auto;
+}
+.chip::before {
+  content: attr(data-n);
+  background: var(--blue);
+  color: var(--bp);
+  font-size: 11px; /* Reduced */
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: .06em;
+}
+.chip.amber {
+  color: var(--amber);
+  background: rgba(232,201,122,0.15);
+  border-color: rgba(232,201,122,0.40);
+}
+.chip.amber::before {
+  background: var(--amber);
+  color: var(--bp);
+}

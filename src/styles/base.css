@@ -1,0 +1,121 @@
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+::-webkit-scrollbar               { width: 10px; height: 10px; }
+::-webkit-scrollbar-track         { background: transparent; }
+::-webkit-scrollbar-thumb         { background: rgba(232,201,122,0.4); backdrop-filter: blur(4px); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover   { background: var(--amber); border: 2px solid transparent; background-clip: content-box; }
+*                                  { scrollbar-width: thin; scrollbar-color: rgba(232,201,122,0.5) transparent; }
+
+/* Base color on html — must be here so fixed pseudo-elements paint above it */
+html {
+  background: var(--bp);
+  color: var(--white);
+  font-family: var(--sans);
+}
+body {
+  background: transparent;
+  color: var(--white);
+  font-family: var(--sans);
+}
+
+/* Reveal containers must be transparent so global layers show through */
+.reveal-viewport, .reveal {
+  background: transparent !important;
+}
+
+/* Fine blueprint grid — fixed, always behind all slide content */
+html::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Coarse blueprint grid overlay */
+html::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 240px 240px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Slide base ─── */
+section.slide {
+  width: 1920px;
+  height: 1080px;
+  background: transparent;
+  color: var(--white);
+  overflow: hidden;
+  font-family: var(--sans);
+  display: flex;
+  position: relative;
+}
+
+section.slide .motif-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--lineB) 1.5px, transparent 1.6px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  opacity: var(--motif-dots-opacity);
+  z-index: 1;
+}
+
+/* Shared inner container */
+.slide-inner {
+  position: relative;
+  z-index: 2;
+  padding: 90px 110px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Shared typography ─── */
+h1.title {
+  font-family: var(--serif);
+  font-size: 130px;
+  line-height: .98;
+  letter-spacing: -.025em;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+h1.title em { font-style: italic; color: var(--amber); }
+
+h2.head {
+  font-family: var(--serif);
+  font-size: 84px;
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  margin-bottom: 48px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.30);
+}
+h2.head em { font-style: italic; color: var(--amber); }
+
+p.lead {
+  font-size: 24px;
+  color: var(--dim);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 1100px;
+}
+p.lead strong { color: var(--white); font-weight: 500; }
+
+
+
+/* ─── Glass card shared ─── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r);
+  box-shadow: var(--glass-inset), var(--glass-shadow);
+}

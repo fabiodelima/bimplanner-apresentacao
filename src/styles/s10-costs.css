@@ -1,0 +1,116 @@
+/* ─── S10: Estrutura de Custos ─── */
+.s-costs .costs-inner {
+  padding-top: 72px;
+  padding-bottom: 80px;
+  gap: 0;
+}
+
+.s-costs .costs-top {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.s-costs .costs-top .head {
+  font-size: 78px;
+  margin-bottom: 0;
+}
+
+/* ── Grid ── */
+.s-costs .costs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Card ── */
+.s-costs .costs-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r);
+  box-shadow: var(--glass-inset), var(--glass-shadow);
+  padding: 32px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.s-costs .costs-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glass-inset), 0 8px 32px rgba(0,0,0,0.28), 0 20px 56px rgba(0,0,0,0.16);
+}
+
+/* Icon */
+.s-costs .costs-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--amber);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.s-costs .costs-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Card title */
+.s-costs .costs-card-title {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+/* Tag row */
+.s-costs .costs-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.s-costs .costs-tag-sep {
+  color: var(--faint);
+}
+
+.s-costs .costs-tag-sub {
+  color: var(--faint);
+}
+
+/* Description */
+.s-costs .costs-desc {
+  font-size: 16px;
+  color: var(--dim);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── Footer note ── */
+.s-costs .costs-footer {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--rsm);
+  padding: 12px 24px;
+  text-align: center;
+  flex-shrink: 0;
+}

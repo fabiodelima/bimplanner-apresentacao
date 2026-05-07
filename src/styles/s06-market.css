@@ -1,0 +1,176 @@
+/* ─── S06: Mercado & Concorrentes ─── */
+.s-market .mkt-inner {
+  gap: 0;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.s-market .mkt-head {
+  font-size: 70px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.s-market .mkt-body {
+  display: flex;
+  gap: 44px;
+  flex: 1;
+  min-height: 0;
+}
+
+.s-market .mkt-left {
+  flex: 0 0 940px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+
+.s-market .mkt-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+
+.s-market .mkt-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  flex-shrink: 0;
+}
+
+/* ── Table ── */
+.s-market .mkt-table {
+  flex-shrink: 0;
+}
+
+.s-market .mkt-thead {
+  display: grid;
+  grid-template-columns: 188px 1fr 172px 224px;
+  padding: 11px 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.s-market .mkt-row {
+  display: grid;
+  grid-template-columns: 188px 1fr 172px 224px;
+  padding: 15px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+}
+
+.s-market .mkt-row:last-child {
+  border-bottom: none;
+}
+
+.s-market .mkt-row.hi {
+  background: rgba(232,201,122,0.07);
+  border-left: 3px solid var(--amber);
+  padding-left: 21px;
+}
+
+.s-market .mkt-col-name {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.s-market .mkt-row.hi .mkt-col-name {
+  color: var(--amber);
+}
+
+.s-market .mkt-col-type {
+  font-size: 16px;
+  color: var(--dim);
+  line-height: 1.3;
+}
+
+.s-market .mkt-row.hi .mkt-col-type {
+  color: var(--amber);
+}
+
+.s-market .mkt-col-rev,
+.s-market .mkt-col-price {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--dim);
+}
+
+.s-market .mkt-row.hi .mkt-col-rev,
+.s-market .mkt-row.hi .mkt-col-price {
+  color: var(--amber);
+}
+
+/* ── Stats bar ── */
+.s-market .mkt-stats {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--lineB);
+  flex: 1;
+}
+
+.s-market .mkt-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 32px;
+}
+
+.s-market .mkt-stat:first-child {
+  padding-left: 0;
+}
+
+.s-market .mkt-sdiv {
+  width: 1px;
+  height: 56px;
+  background: var(--lineB);
+  flex-shrink: 0;
+}
+
+.s-market .mkt-sn {
+  font-family: var(--serif);
+  font-size: 60px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(232,201,122,0.22);
+}
+
+.s-market .mkt-sn-sm {
+  font-size: 36px;
+}
+
+.s-market .mkt-sl {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+/* ── Positioning chart ── */
+.s-market .mkt-chart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  min-height: 0;
+}
+
+.s-market .mkt-chart svg {
+  width: 100%;
+  height: 100%;
+}

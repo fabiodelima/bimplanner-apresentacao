@@ -1,0 +1,55 @@
+.team-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.team-head {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.team-title {
+  max-width: 900px;
+  margin: 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px 36px;
+  border-radius: var(--r);
+}
+
+.team-role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+
+.team-name {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.team-bio {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--dim);
+  line-height: 1.6;
+  margin: 0;
+}

@@ -1,0 +1,127 @@
+/* ─── S02: O Problema ─── */
+.s-problem .slide-inner {
+  flex-direction: row;
+  gap: 80px;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* ── Left column: editorial typography ── */
+.s-problem .prob-left {
+  flex: 0 0 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.s-problem .prob-left .head {
+  margin-bottom: 56px;
+  font-size: 78px;
+}
+
+/* KPI stats — raw typography, no card */
+.s-problem .prob-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--lineB);
+}
+
+.s-problem .prob-stat {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--lineB);
+}
+
+.s-problem .stat-n {
+  font-family: var(--serif);
+  font-size: 58px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-shadow: 0 2px 20px rgba(232,201,122,0.20);
+}
+
+.s-problem .prob-stat.highlight .stat-n {
+  font-size: 80px;
+  text-shadow: 0 2px 28px rgba(232,201,122,0.35);
+}
+
+.s-problem .stat-l {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--faint);
+  letter-spacing: .06em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+/* ── Right column: stacked numbered cards ── */
+.s-problem .prob-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  justify-content: center;
+}
+
+.s-problem .prob-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 28px;
+  align-items: start;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-left: 3px solid var(--amber);
+  border-top:    1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-right:  1px solid rgba(255,255,255,0.07);
+  border-radius: var(--rsm);
+  padding: 32px 36px;
+  box-shadow: var(--glass-inset), var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle amber left glow */
+.s-problem .prob-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 120px;
+  background: linear-gradient(to right, rgba(232,201,122,0.07), transparent);
+  pointer-events: none;
+}
+
+.s-problem .prob-n {
+  font-family: var(--serif);
+  font-size: 52px;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -.02em;
+  opacity: 0.7;
+  padding-top: 4px;
+}
+
+.s-problem .prob-body { display: flex; flex-direction: column; gap: 10px; }
+
+.s-problem .prob-title {
+  font-family: var(--sans);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.s-problem .prob-desc {
+  font-size: 17px;
+  color: var(--dim);
+  line-height: 1.65;
+}

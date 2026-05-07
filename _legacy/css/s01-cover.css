@@ -1,0 +1,84 @@
+/* ─── S01: Capa ─── */
+.s-cover {
+  align-items: center;
+  justify-content: center;
+}
+
+/* Decorative orbs */
+.s-cover .cover-orb {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(232,201,122,.10) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.s-cover .cover-orb2 {
+  position: absolute;
+  bottom: -300px; left: 30%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(126,184,247,.07) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Center content */
+.s-cover .capa-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 80px;
+  gap: 0;
+}
+
+/* BIMPlanner wordmark */
+.s-cover .capa-logo {
+  font-size: 204px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.s-cover .capa-logo .bim     { font-family: var(--sans); font-weight: 700; color: var(--white); }
+.s-cover .capa-logo .planner { font-family: var(--serif); font-style: italic; color: var(--amber); font-weight: 400; }
+
+/* Amber separator */
+.s-cover .capa-line {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  margin: 28px auto;
+  opacity: 0.6;
+}
+
+/* Subtitle */
+.s-cover .capa-sub {
+  font-family: var(--sans);
+  font-size: 44px;
+  color: var(--dim);
+  font-weight: 300;
+  margin-bottom: 64px;
+  letter-spacing: 0.02em;
+}
+
+/* Team names */
+.s-cover .capa-team {
+  font-family: var(--mono);
+  font-size: 24px;
+  color: var(--faint);
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+
+/* Course info */
+.s-cover .capa-footer {
+  font-family: var(--mono);
+  font-size: 20px;
+  color: var(--muted);
+  letter-spacing: 0.10em;
+}
