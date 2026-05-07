@@ -3,12 +3,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-top: 60px;
-  gap: 36px;
+  padding-top: 48px;
+  gap: 24px;
 }
 
 .s-patent .head {
-  font-size: 88px;
+  font-size: 80px;
   line-height: 0.9;
   margin: 0;
   text-align: left;
@@ -18,23 +18,24 @@
 .s-patent .patent-grid {
   display: flex;
   flex-direction: row;
-  gap: 80px;
+  gap: 64px;
   align-items: flex-start;
   width: 100%;
 }
 
 /* -- Left column: Documento da Patente -- */
 .s-patent .patent-left {
-  flex: 0 0 460px;
+  flex: 0 0 380px;
   display: flex;
   justify-content: center;
 }
 
 .s-patent .patent-doc {
   background: #fdfdfb;
-  width: 420px;
-  height: 594px; /* width * 1.41428571429 */
-  padding: 40px 38px;
+  width: 350px;
+  /* altura reduzida de 594px → 490px para caber no canvas 1080px */
+  height: 490px;
+  padding: 28px 30px;
   box-shadow: 
     0 30px 80px rgba(0,0,0,0.3),
     0 0 0 1px rgba(0,0,0,0.05);
@@ -50,8 +51,8 @@
 
 /* Carimbo - Top Right Overlap */
 .s-patent .carimbo {
-  width: 76px;
-  height: 76px;
+  width: 68px;
+  height: 68px;
   border: 2px double #A12B2B;
   display: flex;
   align-items: center;
@@ -60,9 +61,9 @@
   border-radius: 50%;
   box-shadow: #A12B2B0D 0px 0px 0px 4px inset;
   position: absolute;
-  top: 30px;
-  right: 24px;
-  font-size: 10px;
+  top: 24px;
+  right: 20px;
+  font-size: 9px;
   font-family: var(--mono);
   font-weight: 700;
   text-align: center;
@@ -77,31 +78,31 @@
 /* Document Content */
 .s-patent .doc-title {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   color: #000;
-  padding: 0 10px;
+  padding: 0 8px;
   letter-spacing: -0.01em;
 }
 
 .s-patent .doc-body {
   font-family: var(--serif);
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.4;
   color: #333;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-align: justify;
 }
 
 .s-patent .doc-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .s-patent .doc-field {
@@ -112,7 +113,7 @@
 
 .s-patent .field-label {
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 7px;
   text-transform: uppercase;
   color: #999;
   letter-spacing: 0.1em;
@@ -121,7 +122,7 @@
 
 .s-patent .field-value {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #111;
 }
@@ -129,7 +130,7 @@
 .s-patent .doc-field.full {
   grid-column: span 2;
   border-top: 1px solid #eee;
-  padding-top: 12px;
+  padding-top: 10px;
 }
 
 /* Barcode */
@@ -138,19 +139,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  padding-bottom: 4px;
+  gap: 4px;
+  padding-bottom: 2px;
 }
 
 .s-patent .barcode-img {
-  width: 160px;
-  height: 36px;
+  width: 140px;
+  height: 30px;
   background: repeating-linear-gradient(to right, #000, #000 1.5px, transparent 1.5px, transparent 5px);
 }
 
 .s-patent .barcode-text {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10px;
   color: #777;
   letter-spacing: 0.12em;
 }
@@ -160,31 +161,31 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   max-width: 1000px;
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .s-patent .lead {
-  font-size: 26px;
+  font-size: 23px;
   color: var(--dim);
   line-height: 1.4;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   text-align: left;
 }
 
 .s-patent .principles {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .s-patent .principle {
   display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 20px;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
   align-items: flex-start;
-  padding: 20px 28px;
+  padding: 16px 24px;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -201,28 +202,28 @@
 
 .s-patent .princ-num {
   font-family: var(--serif);
-  font-size: 52px;
+  font-size: 44px;
   color: var(--amber);
   line-height: 1;
-  margin-top: -4px;
+  margin-top: -2px;
 }
 
 .s-patent .princ-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   text-align: left;
 }
 
 .s-patent .princ-title {
   font-family: var(--sans);
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--white);
 }
 
 .s-patent .princ-text {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--dim);
-  line-height: 1.45;
+  line-height: 1.4;
 }
