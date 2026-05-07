@@ -37,11 +37,11 @@ export default function Toc({ deckRef, currentIndex }) {
         className={`toc-btn${open ? ' open' : ''}`}
         onClick={() => setOpen(v => !v)}
         title="Sumário (T)"
+        aria-label="Sumário"
       >
         <span className="toc-bars">
           <span /><span /><span />
         </span>
-        Sumário
       </button>
 
       {open && (
