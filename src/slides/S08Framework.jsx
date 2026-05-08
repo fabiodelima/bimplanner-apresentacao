@@ -27,49 +27,9 @@ const DIMENSIONS = [
   },
 ];
 
-function PanelContent({ dim, visible }) {
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      padding: '48px 64px',
-      boxSizing: 'border-box',
-      gap: 20,
-      visibility: visible ? 'visible' : 'hidden',
-      position: visible ? 'relative' : 'absolute',
-      top: 0, left: 0, right: 0,
-    }}>
-      <span style={{ fontSize: 56, lineHeight: 1 }}>{dim.icon}</span>
-      <div style={{ fontFamily: 'var(--serif)', fontSize: 42, lineHeight: 1.1 }}>{dim.label}</div>
-      <p style={{ fontSize: 18, color: 'var(--dim)', lineHeight: 1.7, margin: 0, maxWidth: 680 }}>{dim.summary}</p>
-      <span style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 6,
-        fontFamily: 'var(--mono)',
-        fontSize: 12,
-        padding: '6px 16px',
-        borderRadius: 100,
-        letterSpacing: '.06em',
-        color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
-        background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
-        border: `1px solid ${dim.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
-      }}>✓ {dim.badgeText}</span>
-    </div>
-  );
-}
-
 export default function S08Framework() {
   const [active, setActive] = useState(0);
-
-  // Item 05 Mercado (id=4) é o maior — renderizamos todos os painéis em stack
-  // O Mercado fica sempre como `position: relative` (dita a altura),
-  // os demais ficam `position: absolute` (invisible quando inativos).
-  // O ativo é mostrado em absolute por cima, exceto o Mercado que já é o tallest.
-  const ANCHOR_ID = 4; // id do Mercado
+  const dim = DIMENSIONS[active];
 
   return (
     <div
@@ -93,15 +53,15 @@ export default function S08Framework() {
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver o resumo.
       </p>
 
-      {/* Body: nav + panel */}
+      {/* Body: nav + panel — altura proporcional ao slide */}
       <div style={{
         display: 'flex',
-        flex: 1,
-        minHeight: 0,
+        height: '52vh',
         border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: 'var(--r)',
         overflow: 'hidden',
         boxShadow: 'var(--glass-shadow)',
+        flexShrink: 0,
       }}>
 
         {/* Sidebar nav */}
@@ -156,59 +116,38 @@ export default function S08Framework() {
           ))}
         </nav>
 
-        {/* Content panel — position relative para conter os absolutos */}
+        {/* Content panel — ocupa toda a altura do container, conteúdo centralizado */}
         <div style={{
           flex: 1,
           minWidth: 0,
           background: 'rgba(255,255,255,0.03)',
           backdropFilter: 'var(--glass-blur)',
           WebkitBackdropFilter: 'var(--glass-blur)',
-          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: '40px 64px',
+          boxSizing: 'border-box',
+          gap: 20,
         }}>
-          {/* Mercado sempre renderizado como flow (dita a altura do container) */}
-          <PanelContent dim={DIMENSIONS[ANCHOR_ID]} visible={active === ANCHOR_ID} />
-
-          {/* Todos os outros renderizados em absolute por cima */}
-          {DIMENSIONS.map((d) => {
-            if (d.id === ANCHOR_ID) return null;
-            return (
-              <div
-                key={d.id}
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  padding: '48px 64px',
-                  boxSizing: 'border-box',
-                  gap: 20,
-                  opacity: active === d.id ? 1 : 0,
-                  pointerEvents: active === d.id ? 'auto' : 'none',
-                  transition: 'opacity .2s',
-                }}
-              >
-                <span style={{ fontSize: 56, lineHeight: 1 }}>{d.icon}</span>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: 42, lineHeight: 1.1 }}>{d.label}</div>
-                <p style={{ fontSize: 18, color: 'var(--dim)', lineHeight: 1.7, margin: 0, maxWidth: 680 }}>{d.summary}</p>
-                <span style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  fontFamily: 'var(--mono)',
-                  fontSize: 12,
-                  padding: '6px 16px',
-                  borderRadius: 100,
-                  letterSpacing: '.06em',
-                  color: d.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
-                  background: d.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
-                  border: `1px solid ${d.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
-                }}>✓ {d.badgeText}</span>
-              </div>
-            );
-          })}
+          <span style={{ fontSize: 56, lineHeight: 1 }}>{dim.icon}</span>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 42, lineHeight: 1.1 }}>{dim.label}</div>
+          <p style={{ fontSize: 18, color: 'var(--dim)', lineHeight: 1.7, margin: 0, maxWidth: 680 }}>{dim.summary}</p>
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            fontFamily: 'var(--mono)',
+            fontSize: 12,
+            padding: '6px 16px',
+            borderRadius: 100,
+            letterSpacing: '.06em',
+            color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
+            background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
+            border: `1px solid ${dim.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
+          }}>✓ {dim.badgeText}</span>
         </div>
       </div>
     </div>
