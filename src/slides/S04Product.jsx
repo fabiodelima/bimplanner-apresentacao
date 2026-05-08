@@ -52,28 +52,9 @@ export default function S04Product() {
   return (
     <>
       <div className="slide-inner prod-slide-inner">
-        <div className="prod-head">
-          <div>
-            <h2 className="head" style={{ marginBottom: 0 }}>Dashboard <em>feito para AEC</em>.</h2>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 12 }}>
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              padding: '5px 14px',
-              borderRadius: 999,
-              border: '1px solid rgba(255,255,255,.18)',
-              background: 'rgba(255,255,255,.07)',
-              fontFamily: 'var(--mono)',
-              fontSize: 11,
-              letterSpacing: '.12em',
-              textTransform: 'uppercase',
-              color: 'var(--faint)',
-            }}>
-              Mockup funcional
-            </span>
-          </div>
+        <div className="prod-head" style={{ alignItems: 'center' }}>
+          <h2 className="head" style={{ marginBottom: 0 }}>Dashboard <em>feito para AEC</em>.</h2>
+          <div className="chip" style={{ marginBottom: 0 }}>Mockup funcional</div>
         </div>
 
         <div className="mockup">
@@ -147,9 +128,9 @@ export default function S04Product() {
                     <span>Projeto</span><span>Cliente</span><span>Fase</span><span>Prazo</span><span>Status</span>
                   </div>
                   {[
-                    { nome: 'Residência Alto Alegre',  cliente: 'Fam. Oliveira',      fase: 'ANTEPROJETO',  prazo: '18 mai', sc: 'sc-w',  label: '⚠ risco' },
-                    { nome: 'Ed. Comercial Moinhos',   cliente: 'Construtora ABC',    fase: 'PROJ. EXEC.',  prazo: '02 jun', sc: 'sc-ok', label: '✓ ok' },
-                    { nome: 'UBS Jardim Floresta',     cliente: 'Pref. Municipal',    fase: 'EST. PRELIM.', prazo: '30 mai', sc: 'sc-ok', label: '✓ ok' },
+                    { nome: 'Residência Alto Alegre',   cliente: 'Fam. Oliveira',     fase: 'ANTEPROJETO',  prazo: '18 mai', sc: 'sc-w',  label: '⚠ risco' },
+                    { nome: 'Ed. Comercial Moinhos',    cliente: 'Construtora ABC',   fase: 'PROJ. EXEC.',  prazo: '02 jun', sc: 'sc-ok', label: '✓ ok' },
+                    { nome: 'UBS Jardim Floresta',      cliente: 'Pref. Municipal',   fase: 'EST. PRELIM.', prazo: '30 mai', sc: 'sc-ok', label: '✓ ok' },
                     { nome: 'Reforma Escritório Centro',cliente: 'Escritório XYZ',    fase: 'ANTEPROJETO',  prazo: '10 jun', sc: 'sc-l',  label: '✕ atraso' },
                     { nome: 'Galpão Industrial RS-020', cliente: 'Indústria Sulina',  fase: 'PROJ. EXEC.',  prazo: '25 jun', sc: 'sc-ok', label: '✓ ok' },
                   ].map((p, i) => (
@@ -241,11 +222,11 @@ export default function S04Product() {
                     <span>Cliente</span><span>Projetos</span><span>Em aberto</span><span>Status</span>
                   </div>
                   {[
-                    { nome: 'Família Oliveira',            proj: 2, aberto: 1, sc: 'sc-w',  label: 'ativo' },
-                    { nome: 'Construtora ABC Ltda.',       proj: 5, aberto: 3, sc: 'sc-ok', label: 'ativo' },
-                    { nome: 'Pref. Mun. de Porto Alegre',  proj: 3, aberto: 1, sc: 'sc-ok', label: 'ativo' },
-                    { nome: 'Escritório XYZ Design',       proj: 1, aberto: 1, sc: 'sc-l',  label: 'atraso' },
-                    { nome: 'Indústria Sulina S.A.',       proj: 2, aberto: 1, sc: 'sc-ok', label: 'ativo' },
+                    { nome: 'Família Oliveira',           proj: 2, aberto: 1, sc: 'sc-w',  label: 'ativo' },
+                    { nome: 'Construtora ABC Ltda.',      proj: 5, aberto: 3, sc: 'sc-ok', label: 'ativo' },
+                    { nome: 'Pref. Mun. de Porto Alegre', proj: 3, aberto: 1, sc: 'sc-ok', label: 'ativo' },
+                    { nome: 'Escritório XYZ Design',      proj: 1, aberto: 1, sc: 'sc-l',  label: 'atraso' },
+                    { nome: 'Indústria Sulina S.A.',      proj: 2, aberto: 1, sc: 'sc-ok', label: 'ativo' },
                   ].map((c, i) => (
                     <div key={i} className="mock-task" style={{ gridTemplateColumns: '1fr 110px 110px 90px' }}>
                       <span style={{ fontWeight: 500 }}>{c.nome}</span>
