@@ -5,42 +5,18 @@ const PHASES = [
     period: 'Mai – Jul · 2026',
     title: 'Validação dirigida',
     active: true,
-    items: [
-      'Entrevistas com 12 escritórios AEC parceiros',
-      'Wireframes navegáveis testados em campo',
-      'Refinamento do BMC com base no feedback',
-      'Ingresso na incubadora Hestia/UFRGS',
-    ],
   },
   {
     period: 'Ago – Dez · 2026',
     title: 'MVP web',
-    items: [
-      'Dashboard + tarefas + cronograma AEC',
-      'Beta fechado com 30 escritórios',
-      'TRL 5 → 6 com piloto público',
-      'Captação seed pré-Series A',
-    ],
   },
   {
     period: '2027 · S1',
     title: 'Plugin Revit',
-    items: [
-      'Integração via Autodesk ADP/Forge',
-      'Plano Team em produção',
-      'Marketplace de templates aberto',
-      'Primeira licitação pública atendida',
-    ],
   },
   {
     period: '2027 · S2 +',
     title: 'Escala LATAM',
-    items: [
-      'Expansão para Portugal e Espanha',
-      'Versão multi-idioma e multi-moeda',
-      'Parcerias com distribuidores Autodesk',
-      'Mil+ escritórios pagantes',
-    ],
   },
 ];
 
@@ -66,11 +42,6 @@ export default function S12Roadmap() {
             <div className={`roadmap-card${phase.active ? ' roadmap-card--active' : ''}`}>
               <span className="roadmap-period">{phase.period}</span>
               <p className="roadmap-card-title">{phase.title}</p>
-              <ul className="roadmap-items">
-                {phase.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
             </div>
           </div>
         ))}

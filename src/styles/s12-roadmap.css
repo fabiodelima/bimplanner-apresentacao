@@ -2,12 +2,15 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: center;
 }
 
 .roadmap-head {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  align-items: center;
+  text-align: center;
 }
 
 .roadmap-title {
@@ -26,19 +29,21 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   align-items: start;
+  width: 100%;
 }
 
 .roadmap-col {
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 16px;
 }
 
 .roadmap-now-badge {
   position: absolute;
-  top: -16px;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -78,7 +83,7 @@
 
 .roadmap-card-title {
   font-family: var(--sans);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--white);
   margin: 0;
@@ -87,30 +92,4 @@
 
 .roadmap-card--active .roadmap-card-title {
   color: var(--amber);
-}
-
-.roadmap-items {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.roadmap-items li {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--dim);
-  line-height: 1.5;
-  padding-left: 14px;
-  position: relative;
-}
-
-.roadmap-items li::before {
-  content: '·';
-  position: absolute;
-  left: 0;
-  color: var(--faint);
 }
