@@ -25,20 +25,20 @@ export default function S06Market() {
               <rect x="262" y="28" width="230" height="206" fill="rgba(232,201,122,0.06)" rx="4" />
 
               {/* Axis lines */}
-              <line x1="260" y1="24" x2="260" y2="462" stroke="rgba(248,250,255,0.2)" strokeWidth="1" />
-              <line x1="24" y1="244" x2="496" y2="244" stroke="rgba(248,250,255,0.2)" strokeWidth="1" />
+              <line x1="260" y1="24" x2="260" y2="462" stroke="rgba(248,250,255,0.18)" strokeWidth="1" />
+              <line x1="24" y1="244" x2="496" y2="244" stroke="rgba(248,250,255,0.18)" strokeWidth="1" />
 
               {/* Axis arrow tips */}
-              <polygon points="260,18 254,28 266,28" fill="rgba(248,250,255,0.35)" />
-              <polygon points="260,468 254,458 266,458" fill="rgba(248,250,255,0.35)" />
-              <polygon points="502,244 492,238 492,250" fill="rgba(248,250,255,0.35)" />
-              <polygon points="18,244 28,238 28,250" fill="rgba(248,250,255,0.35)" />
+              <polygon points="260,18 254,28 266,28" fill="rgba(248,250,255,0.28)" />
+              <polygon points="260,468 254,458 266,458" fill="rgba(248,250,255,0.28)" />
+              <polygon points="502,244 492,238 492,250" fill="rgba(248,250,255,0.28)" />
+              <polygon points="18,244 28,238 28,250" fill="rgba(248,250,255,0.28)" />
 
-              {/* Axis labels */}
-              <text x="260" y="14" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">BIM INTEGRADO</text>
-              <text x="260" y="487" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">SEM BIM</text>
-              <text x="28" y="238" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">GENÉRICO</text>
-              <text x="492" y="238" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">VERTICAL AEC</text>
+              {/* Axis labels — esmaecidas */}
+              <text x="260" y="14" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">BIM INTEGRADO</text>
+              <text x="260" y="487" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">SEM BIM</text>
+              <text x="28" y="238" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">GENÉRICO</text>
+              <text x="492" y="238" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">VERTICAL AEC</text>
 
               {/* Procore */}
               <circle cx="450" cy="58" r="12" fill="rgba(255,107,107,0.85)" />
@@ -49,9 +49,9 @@ export default function S06Market() {
               <circle cx="370" cy="110" r="13" fill="rgba(232,201,122,0.9)" />
               <text x="348" y="100" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(232,201,122,1)" fontWeight="600">BIMPlanner</text>
 
-              {/* Sienge — BIM parcial, acima da linha horizontal */}
-              <circle cx="340" cy="214" r="10" fill="rgba(168,192,224,0.55)" />
-              <text x="356" y="219" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(248,250,255,0.72)">Sienge</text>
+              {/* Sienge — BIM parcial; deslocado para esquerda para não sobrepor VERTICAL AEC */}
+              <circle cx="310" cy="195" r="10" fill="rgba(168,192,224,0.55)" />
+              <text x="296" y="181" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(248,250,255,0.72)">Sienge</text>
 
               {/* Monday */}
               <circle cx="148" cy="302" r="10" fill="rgba(168,192,224,0.45)" />
@@ -86,19 +86,41 @@ export default function S06Market() {
           </div>
 
           <div className="mkt-stats">
+            {/* TAM */}
             <div className="mkt-stat">
-              <span className="mkt-sn">R$ 4,2B</span>
-              <span className="mkt-sl">TAM estimado<br />Brasil (AEC SaaS)</span>
+              <svg className="mkt-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="12" width="4" height="10"/>
+                <rect x="9" y="7" width="4" height="15"/>
+                <rect x="16" y="3" width="4" height="19"/>
+              </svg>
+              <div className="mkt-stat-text">
+                <span className="mkt-sn">R$ 4,2B</span>
+                <span className="mkt-sl">TAM estimado<br />Brasil (AEC SaaS)</span>
+              </div>
             </div>
             <div className="mkt-sdiv" />
+            {/* Crescimento */}
             <div className="mkt-stat">
-              <span className="mkt-sn mkt-sn-sm">~15%</span>
-              <span className="mkt-sl">crescimento BIM<br />software no Brasil<br /><span className="mkt-source">Cognitive Market Research</span></span>
+              <svg className="mkt-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                <polyline points="16 7 22 7 22 13"/>
+              </svg>
+              <div className="mkt-stat-text">
+                <span className="mkt-sn mkt-sn-sm">~15%</span>
+                <span className="mkt-sl">crescimento BIM<br />software no Brasil<br /><span className="mkt-source">Cognitive Market Research</span></span>
+              </div>
             </div>
             <div className="mkt-sdiv" />
+            {/* Preço */}
             <div className="mkt-stat">
-              <span className="mkt-sn">14x</span>
-              <span className="mkt-sl">mais barato<br />que Procore</span>
+              <svg className="mkt-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+              <div className="mkt-stat-text">
+                <span className="mkt-sn">14x</span>
+                <span className="mkt-sl">mais barato<br />que Procore</span>
+              </div>
             </div>
           </div>
         </div>
