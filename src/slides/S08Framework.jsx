@@ -44,8 +44,8 @@ export default function S08Framework() {
         boxSizing: 'border-box',
       }}
     >
-      {/* Header */}
-      <h2 className="head" style={{ marginBottom: 10, fontSize: 52 }}>
+      {/* Título +15%: 52 → 60 */}
+      <h2 className="head" style={{ marginBottom: 10, fontSize: 60 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
       <p style={{ fontSize: 25, color: 'var(--dim)', lineHeight: 1.5, marginBottom: 18, textAlign: 'center' }}>
@@ -64,7 +64,7 @@ export default function S08Framework() {
         flexShrink: 0,
       }}>
 
-        {/* Sidebar nav */}
+        {/* Sidebar nav — textos +15% */}
         <nav style={{
           width: '340px',
           flexShrink: 0,
@@ -92,18 +92,22 @@ export default function S08Framework() {
                 borderBottom: d.id < 5 ? '1px solid rgba(255,255,255,0.06)' : 'none',
               }}
             >
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: active === d.id ? 'var(--amber)' : 'var(--faint)', letterSpacing: '.06em', minWidth: 24, flexShrink: 0 }}>{d.n}</span>
-              <span style={{ fontSize: 26, lineHeight: 1, flexShrink: 0 }}>{d.icon}</span>
+              {/* número: 13 → 15 */}
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 15, color: active === d.id ? 'var(--amber)' : 'var(--faint)', letterSpacing: '.06em', minWidth: 24, flexShrink: 0 }}>{d.n}</span>
+              {/* emoji: 26 → 30 */}
+              <span style={{ fontSize: 30, lineHeight: 1, flexShrink: 0 }}>{d.icon}</span>
+              {/* label: 18 → 21 */}
               <span style={{
                 flex: 1,
-                fontSize: 18,
+                fontSize: 21,
                 color: active === d.id ? 'var(--amber)' : 'rgba(248,250,255,0.8)',
                 fontWeight: active === d.id ? 500 : 400,
                 lineHeight: 1.3,
               }}>{d.label}</span>
+              {/* badge: 11 → 13 */}
               <span style={{
                 fontFamily: 'var(--mono)',
-                fontSize: 11,
+                fontSize: 13,
                 padding: '4px 10px',
                 borderRadius: 100,
                 letterSpacing: '.04em',
@@ -116,7 +120,7 @@ export default function S08Framework() {
           ))}
         </nav>
 
-        {/* Content panel — textos +25% */}
+        {/* Content panel */}
         <div style={{
           flex: 1,
           minWidth: 0,
