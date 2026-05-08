@@ -56,11 +56,24 @@ export default function S04Product() {
           <div>
             <h2 className="head" style={{ marginBottom: 0 }}>Dashboard <em>feito para AEC</em>.</h2>
           </div>
-          <p className="prod-desc">
-            <strong>Mockup funcional —</strong> clique nos itens da barra lateral
-            para navegar entre as telas. Cada tarefa conhece sua fase, a IA monitora
-            prazos antes que virem problema, toda a equipe tem visibilidade.
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 12 }}>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '5px 14px',
+              borderRadius: 999,
+              border: '1px solid rgba(255,255,255,.18)',
+              background: 'rgba(255,255,255,.07)',
+              fontFamily: 'var(--mono)',
+              fontSize: 11,
+              letterSpacing: '.12em',
+              textTransform: 'uppercase',
+              color: 'var(--faint)',
+            }}>
+              Mockup funcional
+            </span>
+          </div>
         </div>
 
         <div className="mockup">
