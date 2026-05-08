@@ -19,8 +19,55 @@ const chipStyle = {
   whiteSpace: 'nowrap',
 };
 
+const Icon = ({ d, size = 24, fill = 'none', ...rest }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size}
+    fill={fill} stroke="currentColor" strokeWidth={1.8}
+    strokeLinecap="round" strokeLinejoin="round" {...rest}>
+    <path d={d} />
+  </svg>
+);
+
+const IconMulti = ({ children, size = 24, ...rest }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size}
+    fill="none" stroke="currentColor" strokeWidth={1.8}
+    strokeLinecap="round" strokeLinejoin="round" {...rest}>
+    {children}
+  </svg>
+);
+
 const RIBBON_TABS = ['Architecture', 'Structure', 'Annotate', 'Analyze', 'Collaborate', 'View', 'BIMPlanner'];
-const RIBBON_ICONS = ['🏛', '⬡', '✏️', '📊', '🤝', '👁', '📋'];
+
+const RIBBON_ICONS = [
+  /* Architecture */
+  <IconMulti key="arch">
+    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/>
+    <path d="M2 22h20"/>
+    <path d="M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/>
+  </IconMulti>,
+  /* Structure */
+  <Icon key="struct" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />,
+  /* Annotate */
+  <Icon key="ann" d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />,
+  /* Analyze */
+  <Icon key="analyze" d="M18 20V10M12 20V4M6 20v-6" />,
+  /* Collaborate */
+  <IconMulti key="collab">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+  </IconMulti>,
+  /* View */
+  <IconMulti key="view">
+    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </IconMulti>,
+  /* BIMPlanner */
+  <IconMulti key="bim">
+    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+    <path d="M9 2h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+    <path d="M9 12h6M9 16h4"/>
+  </IconMulti>,
+];
 
 const PLUGIN_TABS = ['TAREFAS', 'FASE', 'IA', 'SYNC'];
 
@@ -34,10 +81,10 @@ export default function S05Revit() {
   const [selectedRibbon, setSelectedRibbon] = useState('BIMPlanner');
 
   return (
-    <div className="slide-inner prod-slide-inner">
+    <div className="slide-inner prod-slide-inner" style={{ padding: '36px 80px 36px' }}>
       {/* Header */}
-      <div className="prod-head" style={{ alignItems: 'center' }}>
-        <h2 className="head" style={{ marginBottom: 0 }}>
+      <div className="prod-head" style={{ alignItems: 'center', marginBottom: 12 }}>
+        <h2 className="head" style={{ marginBottom: 0, fontSize: 52 }}>
           O BIMPlanner <em>dentro do Revit</em>.
         </h2>
         <div style={chipStyle}>Mockup funcional</div>
@@ -61,18 +108,18 @@ export default function S05Revit() {
         <div style={{
           background: '#2d2d30',
           borderBottom: '1px solid #333',
-          padding: '10px 18px',
+          padding: '14px 22px',
           display: 'flex',
           alignItems: 'center',
           gap: 12,
           flexShrink: 0,
         }}>
-          <div style={{ display: 'flex', gap: 6 }}>
-            <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57' }} />
-            <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#febc2e' }} />
-            <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840' }} />
+          <div style={{ display: 'flex', gap: 7 }}>
+            <div style={{ width: 14, height: 14, borderRadius: '50%', background: '#ff5f57' }} />
+            <div style={{ width: 14, height: 14, borderRadius: '50%', background: '#febc2e' }} />
+            <div style={{ width: 14, height: 14, borderRadius: '50%', background: '#28c840' }} />
           </div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: '#888', letterSpacing: '.06em', flex: 1, textAlign: 'center' }}>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: '#888', letterSpacing: '.06em', flex: 1, textAlign: 'center' }}>
             Autodesk Revit 2025 — Residência Alto Alegre.rvt
           </div>
         </div>
@@ -85,7 +132,7 @@ export default function S05Revit() {
           display: 'flex',
           alignItems: 'stretch',
           gap: 4,
-          height: 72,
+          height: 92,
           flexShrink: 0,
         }}>
           {RIBBON_TABS.map((tab, i) => (
@@ -97,9 +144,9 @@ export default function S05Revit() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '0 16px',
+                padding: '0 20px',
                 fontFamily: 'var(--mono)',
-                fontSize: 11,
+                fontSize: 13,
                 color: selectedRibbon === tab
                   ? (tab === 'BIMPlanner' ? 'var(--amber)' : 'var(--blue)')
                   : '#aaa',
@@ -108,11 +155,23 @@ export default function S05Revit() {
                 borderBottom: selectedRibbon === tab
                   ? `2px solid ${tab === 'BIMPlanner' ? 'var(--amber)' : 'var(--blue)'}`
                   : '2px solid transparent',
-                gap: 5,
+                gap: 6,
                 transition: 'all .2s',
               }}
             >
-              <span style={{ fontSize: 20 }}>{RIBBON_ICONS[i]}</span>
+              <span style={{
+                display: 'flex',
+                color: selectedRibbon === tab
+                  ? (tab === 'BIMPlanner' ? 'var(--amber)' : 'var(--blue)')
+                  : '#aaa',
+              }}>
+                {RIBBON_ICONS[i]
+                  ? (() => {
+                      const icon = RIBBON_ICONS[i];
+                      return { ...icon, props: { ...icon.props, size: 28 } };
+                    })()
+                  : null}
+              </span>
               {tab}
             </div>
           ))}
@@ -121,7 +180,7 @@ export default function S05Revit() {
         {/* Body: Viewport + Plugin Panel */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 320px',
+          gridTemplateColumns: '1fr 400px',
           flex: 1,
           minHeight: 0,
         }}>
@@ -144,28 +203,32 @@ export default function S05Revit() {
               background: 'rgba(20,40,70,.85)',
               border: '1px solid #2d4a6d',
               borderRadius: 'var(--rsm)',
-              padding: 12,
-              width: 160,
+              padding: 14,
+              width: 200,
             }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--blue)', letterSpacing: '.08em', marginBottom: 6 }}>PLANTA · PAV. TIPO</div>
-              <div style={{ width: '100%', height: 80, background: 'rgba(30,60,100,.5)', border: '1px solid #2d4a6d', borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28 }}>📐</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--blue)', letterSpacing: '.08em', marginBottom: 8 }}>PLANTA · PAV. TIPO</div>
+              <div style={{ width: '100%', height: 110, background: 'rgba(30,60,100,.5)', border: '1px solid #2d4a6d', borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--blue)' }}>
+                <svg viewBox="0 0 24 24" width={48} height={48} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/>
+                </svg>
+              </div>
             </div>
 
             {/* Building schematic — floor plan cells */}
             <div style={{
               position: 'absolute',
-              bottom: 60, left: '50%',
+              bottom: 70, left: '50%',
               transform: 'translateX(-50%)',
               background: 'rgba(30,50,90,.7)',
               border: '1px solid rgba(126,184,247,.25)',
               borderRadius: 6,
-              padding: 14,
-              width: 220,
+              padding: 16,
+              width: 280,
             }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 6, marginBottom: 6 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 6, marginBottom: 8 }}>
                 {[...Array(9)].map((_, i) => (
                   <div key={i} style={{
-                    height: 28,
+                    height: 36,
                     background: i === 4 ? 'rgba(232,201,122,.35)' : 'rgba(100,140,180,.12)',
                     border: `1px solid ${i === 4 ? 'var(--amber)' : 'rgba(126,184,247,.18)'}`,
                     borderRadius: 3,
@@ -173,10 +236,10 @@ export default function S05Revit() {
                   }}>
                     {i === 4 && (
                       <div style={{
-                        position: 'absolute', top: -22, left: '50%', transform: 'translateX(-50%)',
+                        position: 'absolute', top: -24, left: '50%', transform: 'translateX(-50%)',
                         background: 'rgba(10,25,60,.95)', border: '1px solid var(--blue)',
-                        borderRadius: 4, padding: '2px 8px',
-                        fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--blue)',
+                        borderRadius: 4, padding: '3px 10px',
+                        fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--blue)',
                         whiteSpace: 'nowrap',
                       }}>Janela W-04 · AP</div>
                     )}
@@ -184,21 +247,27 @@ export default function S05Revit() {
                 ))}
               </div>
               <div style={{
-                fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--green)',
+                fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--green)',
                 letterSpacing: '.06em',
-              }}>✓ 2 tarefas</div>
+                display: 'flex', alignItems: 'center', gap: 6,
+              }}>
+                <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+                2 tarefas vinculadas
+              </div>
             </div>
 
             {/* Selected element badge */}
             <div style={{
-              position: 'absolute', bottom: 16, left: 20,
+              position: 'absolute', bottom: 20, left: 20,
               background: 'rgba(20,40,70,.9)',
               border: '1px solid var(--blue)',
               borderRadius: 'var(--rsm)',
-              padding: '10px 14px',
+              padding: '12px 18px',
             }}>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--blue)', letterSpacing: '.08em', marginBottom: 4 }}>ELEMENTO SELECIONADO</div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: '#e0e0e0' }}>Janela W-04 · Fachada Norte</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--blue)', letterSpacing: '.08em', marginBottom: 5 }}>ELEMENTO SELECIONADO</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 15, color: '#e0e0e0' }}>Janela W-04 · Fachada Norte</div>
             </div>
 
             {/* Status bar */}
@@ -206,9 +275,9 @@ export default function S05Revit() {
               position: 'absolute', bottom: 0, left: 0, right: 0,
               background: '#252526',
               borderTop: '1px solid #333',
-              padding: '5px 20px',
+              padding: '6px 20px',
               fontFamily: 'var(--mono)',
-              fontSize: 10,
+              fontSize: 12,
               color: '#666',
               letterSpacing: '.06em',
               display: 'flex',
@@ -236,11 +305,11 @@ export default function S05Revit() {
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--amber), #f5d896)' }} />
 
             {/* Plugin header */}
-            <div style={{ padding: '16px 20px 0', borderBottom: '1px solid var(--lineB)' }}>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 17, color: 'var(--white)', marginBottom: 2 }}>
+            <div style={{ padding: '20px 24px 0', borderBottom: '1px solid var(--lineB)' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 21, color: 'var(--white)', marginBottom: 3 }}>
                 BIM<span style={{ color: 'var(--amber)' }}>Planner</span>
               </div>
-              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 12 }}>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 14 }}>
                 Assistente de Projeto
               </div>
 
@@ -252,9 +321,9 @@ export default function S05Revit() {
                     onClick={() => setActiveTab(tab)}
                     style={{
                       flex: 1,
-                      padding: '8px 4px',
+                      padding: '10px 4px',
                       fontFamily: 'var(--mono)',
-                      fontSize: 10,
+                      fontSize: 12,
                       color: activeTab === tab ? 'var(--amber)' : 'var(--faint)',
                       textAlign: 'center',
                       cursor: 'pointer',
@@ -270,7 +339,7 @@ export default function S05Revit() {
             </div>
 
             {/* Plugin body */}
-            <div style={{ flex: 1, padding: 16, display: 'flex', flexDirection: 'column', gap: 12, overflowY: 'auto' }}>
+            <div style={{ flex: 1, padding: 20, display: 'flex', flexDirection: 'column', gap: 14, overflowY: 'auto' }}>
               {activeTab === 'TAREFAS' && (
                 <>
                   {/* Context card */}
@@ -278,10 +347,10 @@ export default function S05Revit() {
                     background: 'var(--bp2)',
                     border: '1px solid var(--amberB)',
                     borderRadius: 'var(--rsm)',
-                    padding: '11px 14px',
+                    padding: '13px 16px',
                   }}>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--amber)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>Elemento vinculado</div>
-                    <div style={{ fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 500 }}>Janela W-04 · Fachada Norte</div>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--amber)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 5 }}>Elemento vinculado</div>
+                    <div style={{ fontFamily: 'var(--sans)', fontSize: 16, fontWeight: 500 }}>Janela W-04 · Fachada Norte</div>
                   </div>
 
                   {/* AI alert */}
@@ -289,18 +358,21 @@ export default function S05Revit() {
                     background: 'rgba(232,201,122,.08)',
                     border: '1px solid var(--amberB)',
                     borderRadius: 'var(--rsm)',
-                    padding: '11px 14px',
+                    padding: '13px 16px',
                     display: 'flex',
-                    gap: 10,
+                    gap: 12,
+                    alignItems: 'flex-start',
                   }}>
-                    <span style={{ fontSize: 13, flexShrink: 0 }}>✦</span>
-                    <div style={{ fontFamily: 'var(--sans)', fontSize: 12, color: 'var(--amber)', lineHeight: 1.5 }}>
+                    <svg viewBox="0 0 24 24" width={18} height={18} fill="currentColor" stroke="none" style={{ color: 'var(--amber)', flexShrink: 0, marginTop: 1 }}>
+                      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+                    </svg>
+                    <div style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--amber)', lineHeight: 1.5 }}>
                       Este elemento tem tarefa em risco: revisão de esquadria pendente há 3 dias.
                     </div>
                   </div>
 
                   {/* Tasks label */}
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>
                     Tarefas vinculadas
                   </div>
 
@@ -309,8 +381,8 @@ export default function S05Revit() {
                     <div key={i} style={{
                       display: 'flex',
                       alignItems: 'flex-start',
-                      gap: 10,
-                      padding: '10px 12px',
+                      gap: 12,
+                      padding: '12px 14px',
                       background: 'var(--bp2)',
                       border: `1px solid ${t.risk ? 'rgba(255,107,107,.25)' : 'var(--lineB)'}`,
                       borderRadius: 'var(--rsm)',
@@ -318,21 +390,24 @@ export default function S05Revit() {
                       transition: 'border-color .2s',
                     }}>
                       <div style={{
-                        width: 16, height: 16,
+                        width: 18, height: 18,
                         border: `1.5px solid ${t.done ? 'var(--green)' : 'var(--lineC)'}`,
                         borderRadius: 4,
                         flexShrink: 0,
                         marginTop: 1,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: 9,
                         background: t.done ? 'var(--green)' : 'transparent',
                         color: 'var(--bp)',
                       }}>
-                        {t.done ? '✓' : ''}
+                        {t.done && (
+                          <svg viewBox="0 0 24 24" width={11} height={11} fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 6 9 17l-5-5"/>
+                          </svg>
+                        )}
                       </div>
                       <div>
-                        <div style={{ fontSize: 12, fontWeight: 500, marginBottom: 2, lineHeight: 1.3 }}>{t.name}</div>
-                        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: t.risk ? 'rgba(255,107,107,.8)' : 'var(--faint)', letterSpacing: '.04em' }}>{t.meta}</div>
+                        <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 3, lineHeight: 1.3 }}>{t.name}</div>
+                        <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: t.risk ? 'rgba(255,107,107,.8)' : 'var(--faint)', letterSpacing: '.04em' }}>{t.meta}</div>
                       </div>
                     </div>
                   ))}
@@ -340,57 +415,70 @@ export default function S05Revit() {
               )}
 
               {activeTab === 'FASE' && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Fase atual</div>
-                  <div style={{ background: 'var(--bp2)', border: '1px solid var(--amberB)', borderRadius: 'var(--rsm)', padding: '14px 16px' }}>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--amber)', letterSpacing: '.1em', marginBottom: 6 }}>ANTEPROJETO</div>
-                    <div style={{ fontSize: 13, color: 'var(--dim)', lineHeight: 1.5 }}>78% concluído · 4 dias restantes</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Fase atual</div>
+                  <div style={{ background: 'var(--bp2)', border: '1px solid var(--amberB)', borderRadius: 'var(--rsm)', padding: '16px 18px' }}>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--amber)', letterSpacing: '.1em', marginBottom: 7 }}>ANTEPROJETO</div>
+                    <div style={{ fontSize: 15, color: 'var(--dim)', lineHeight: 1.5 }}>78% concluído · 4 dias restantes</div>
                   </div>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', marginTop: 4 }}>Próxima fase</div>
-                  <div style={{ background: 'var(--bp2)', border: '1px solid var(--lineB)', borderRadius: 'var(--rsm)', padding: '14px 16px', opacity: .6 }}>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--blue)', letterSpacing: '.1em', marginBottom: 6 }}>PROJETO EXECUTIVO</div>
-                    <div style={{ fontSize: 13, color: 'var(--dim)', lineHeight: 1.5 }}>Início estimado: 20 mai 2026</div>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', marginTop: 4 }}>Próxima fase</div>
+                  <div style={{ background: 'var(--bp2)', border: '1px solid var(--lineB)', borderRadius: 'var(--rsm)', padding: '16px 18px', opacity: .6 }}>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--blue)', letterSpacing: '.1em', marginBottom: 7 }}>PROJETO EXECUTIVO</div>
+                    <div style={{ fontSize: 15, color: 'var(--dim)', lineHeight: 1.5 }}>Início estimado: 20 mai 2026</div>
                   </div>
                 </div>
               )}
 
               {activeTab === 'IA' && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Alertas IA · elemento</div>
-                  <div style={{ background: 'rgba(255,107,107,.08)', border: '1px solid rgba(255,107,107,.25)', borderRadius: 'var(--rsm)', padding: '13px 14px', display: 'flex', gap: 10 }}>
-                    <span style={{ flexShrink: 0 }}>🔴</span>
-                    <div style={{ fontSize: 12, color: 'var(--dim)', lineHeight: 1.5 }}>Esquadria W-04 tem especificação divergente do memorial descritivo v2.</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Alertas IA · elemento</div>
+                  <div style={{ background: 'rgba(255,107,107,.08)', border: '1px solid rgba(255,107,107,.25)', borderRadius: 'var(--rsm)', padding: '15px 16px', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                    <svg viewBox="0 0 24 24" width={16} height={16} style={{ color: '#ff6b6b', flexShrink: 0, marginTop: 1 }}>
+                      <circle cx="12" cy="12" r="9" fill="currentColor"/>
+                    </svg>
+                    <div style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.5 }}>Esquadria W-04 tem especificação divergente do memorial descritivo v2.</div>
                   </div>
-                  <div style={{ background: 'var(--amberG)', border: '1px solid var(--amberB)', borderRadius: 'var(--rsm)', padding: '13px 14px', display: 'flex', gap: 10 }}>
-                    <span style={{ flexShrink: 0 }}>✦</span>
-                    <div style={{ fontSize: 12, color: 'var(--amber)', lineHeight: 1.5 }}>Verificar folga de instalação conforme NBR 10821.</div>
+                  <div style={{ background: 'var(--amberG)', border: '1px solid var(--amberB)', borderRadius: 'var(--rsm)', padding: '15px 16px', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                    <svg viewBox="0 0 24 24" width={16} height={16} fill="currentColor" stroke="none" style={{ color: 'var(--amber)', flexShrink: 0, marginTop: 1 }}>
+                      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+                    </svg>
+                    <div style={{ fontSize: 14, color: 'var(--amber)', lineHeight: 1.5 }}>Verificar folga de instalação conforme NBR 10821.</div>
                   </div>
                 </div>
               )}
 
               {activeTab === 'SYNC' && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Status de sincronização</div>
-                  <div style={{ background: 'rgba(107,207,127,.08)', border: '1px solid rgba(107,207,127,.2)', borderRadius: 'var(--rsm)', padding: '13px 14px' }}>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--green)', letterSpacing: '.08em', marginBottom: 5 }}>⬡ CONECTADO</div>
-                    <div style={{ fontSize: 13, color: 'var(--dim)' }}>Residência Alto Alegre.rvt</div>
-                    <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--faint)', marginTop: 6 }}>Último sync: há 2 min · 14 elementos vinculados</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Status de sincronização</div>
+                  <div style={{ background: 'rgba(107,207,127,.08)', border: '1px solid rgba(107,207,127,.2)', borderRadius: 'var(--rsm)', padding: '15px 16px' }}>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--green)', letterSpacing: '.08em', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--green)' }}>
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                      </svg>
+                      CONECTADO
+                    </div>
+                    <div style={{ fontSize: 15, color: 'var(--dim)' }}>Residência Alto Alegre.rvt</div>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', marginTop: 7 }}>Último sync: há 2 min · 14 elementos vinculados</div>
                   </div>
                 </div>
               )}
             </div>
 
             {/* Link button */}
-            <div style={{ padding: '0 16px 16px' }}>
+            <div style={{ padding: '0 20px 20px' }}>
               <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                 background: 'var(--amberG)', border: '1px solid var(--amberB)',
-                borderRadius: 'var(--rsm)', padding: 10,
-                fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--amber)',
+                borderRadius: 'var(--rsm)', padding: 12,
+                fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--amber)',
                 letterSpacing: '.06em', cursor: 'pointer',
                 transition: 'all .2s',
               }}>
-                ⊕ Vincular nova tarefa ao elemento
+                <svg viewBox="0 0 24 24" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 8v8M8 12h8"/>
+                </svg>
+                Vincular nova tarefa ao elemento
               </div>
             </div>
           </div>
