@@ -7,7 +7,7 @@
 
 .s-market .mkt-head {
   font-size: 70px;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   flex-shrink: 0;
 }
 
@@ -23,7 +23,7 @@
   flex: 0 0 460px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   min-height: 0;
 }
 
@@ -32,39 +32,46 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   min-height: 0;
 }
 
-/* ── Section labels — amber ── */
+/* ── Section labels — amber, tamanho aumentado ── */
 .s-market .mkt-label {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 14px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--amber);
-  opacity: 0.8;
+  opacity: 0.85;
   flex-shrink: 0;
 }
 
-/* ── Table ── */
+/* ── Table: overflow hidden para conter o border-left da .hi ── */
 .s-market .mkt-table {
   flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  /* borda superior clara igual ao glass */
+  border-top: 1px solid rgba(255,255,255,0.14);
+  border-left: 1px solid rgba(255,255,255,0.10);
+  border-right: 1px solid rgba(255,255,255,0.07);
 }
 
-/* Header: cor #35507d solid */
+/* Header: #406096, altura minima igual a linhas de dados */
 .s-market .mkt-thead {
   display: grid;
   grid-template-columns: 200px 1fr 160px 200px;
-  padding: 13px 24px;
+  padding: 17px 24px;
+  min-height: 58px;
+  align-items: center;
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: rgba(248,250,255,0.95);
-  background: #35507d;
+  background: #406096;
   border-bottom: 1px solid rgba(232,201,122,0.35);
-  border-radius: 6px 6px 0 0;
 }
 
 .s-market .mkt-row {
@@ -79,10 +86,11 @@
   border-bottom: none;
 }
 
+/* border-left contida pelo overflow:hidden do .mkt-table */
 .s-market .mkt-row.hi {
   background: rgba(232,201,122,0.08);
-  border-left: 3px solid var(--amber);
-  padding-left: 21px;
+  border-left: 4px solid var(--amber);
+  padding-left: 20px;
 }
 
 .s-market .mkt-col-name {
@@ -130,7 +138,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   padding: 0 28px;
 }
 
@@ -155,7 +163,7 @@
 }
 
 .s-market .mkt-sn-sm {
-  font-size: 32px;
+  font-size: 36px;
   line-height: 1.1;
 }
 
@@ -166,6 +174,17 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.5;
+}
+
+/* Fonte de dados — menor e mais discreta */
+.s-market .mkt-source {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(248,250,255,0.3);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  display: block;
+  margin-top: 2px;
 }
 
 /* ── Positioning chart ── */
