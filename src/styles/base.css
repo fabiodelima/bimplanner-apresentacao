@@ -123,10 +123,9 @@ p.lead strong { color: var(--white); font-weight: 500; }
 /* ─────────────────────────────────────────────────────────────
    PRINT / PDF EXPORT
    Instrução de uso:
-     1. Abra a apresentação normalmente no Chrome
-     2. Adicione ?print-pdf na URL
-     3. Ctrl+P → Layout: Paisagem → Salvar como PDF
-        (desmarque "Cabeçalhos e rodapés", marque "Gráficos de fundo")
+     - Clique em "Exportar PDF" no sumário (ou pressione Ctrl+P manualmente)
+     - O diálogo de impressão abre já com o layout correto
+     - Selecione "Salvar como PDF", marque "Gráficos de fundo"
    ───────────────────────────────────────────────────────────── */
 @media print {
 
@@ -192,9 +191,11 @@ p.lead strong { color: var(--white); font-weight: 500; }
     overflow: visible !important;
   }
 
-  /* Cada slide = uma página inteira 16:9, com fundo azul */
+  /* Cada slide = uma página inteira 16:9, com fundo azul e conteúdo centralizado */
   section.slide {
     display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: 100vw !important;
     height: 100vh !important;
     min-height: 100vh !important;

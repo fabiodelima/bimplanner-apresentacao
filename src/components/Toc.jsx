@@ -7,12 +7,23 @@ const LABELS = {
   acad: 'Acadêmico',
 };
 
-// Opens ?print-pdf in a new tab — reveal.js renders all slides for printing.
-// The user then uses Ctrl+P → Save as PDF (destination: PDF).
-function openPrintPdf() {
-  const url = new URL(window.location.href);
-  url.search = '?print-pdf';
-  window.open(url.toString(), '_blank');
+// Ativa o modo ?print-pdf na própria aba (sem mudar a URL visível),
+// dispara window.print() e limpa o parâmetro logo após o diálogo fechar.
+function triggerPrint() {
+  // Injeta ?print-pdf no histórico sem navegar
+  const printUrl = new URL(window.location.href);
+  printUrl.search = '?print-pdf';
+  window.history.replaceState(null, '', printUrl.toString());
+
+  // Pequeno delay para o reveal.js detectar a mudança de URL e aplicar o layout
+  setTimeout(() => {
+    window.print();
+
+    // Restaura a URL original após o diálogo de impressão ser dispensado
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.search = '';
+    window.history.replaceState(null, '', cleanUrl.toString());
+  }, 300);
 }
 
 export default function Toc({ deckRef, currentIndex }) {
@@ -68,8 +79,8 @@ export default function Toc({ deckRef, currentIndex }) {
               <div className="toc-header-actions">
                 <button
                   className="toc-action-btn"
-                  onClick={openPrintPdf}
-                  title="Abre uma nova aba com o layout de impressão. Use Ctrl+P → Salvar como PDF."
+                  onClick={triggerPrint}
+                  title="Exportar como PDF via Ctrl+P"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
