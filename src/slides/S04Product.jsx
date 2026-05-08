@@ -38,15 +38,17 @@ const chipStyle = {
   whiteSpace: 'nowrap',
 };
 
-const SCALES = [0.82, 1.0, 1.2];
+const SCALES = [0.72, 0.85, 1.0, 1.18, 1.38];
 
 export default function S04Product() {
   const [view, setView] = useState('dashboard');
-  const [scaleIdx, setScaleIdx] = useState(1);
+  const [scaleIdx, setScaleIdx] = useState(2);
+  const [fullscreen, setFullscreen] = useState(false);
   const ganttRef = useRef(null);
 
-  const shrink = () => setScaleIdx(i => Math.max(0, i - 1));
-  const grow   = () => setScaleIdx(i => Math.min(SCALES.length - 1, i + 1));
+  const shrink     = () => setScaleIdx(i => Math.max(0, i - 1));
+  const grow       = () => setScaleIdx(i => Math.min(SCALES.length - 1, i + 1));
+  const toggleFull = () => setFullscreen(f => !f);
 
   useEffect(() => {
     const container = ganttRef.current;
@@ -81,11 +83,37 @@ export default function S04Product() {
           <div style={chipStyle}>Mockup funcional</div>
         </div>
 
-        <div className="mockup">
+        {/* Fullscreen backdrop */}
+        {fullscreen && (
+          <div
+            onClick={toggleFull}
+            style={{
+              position: 'fixed', inset: 0, background: 'rgba(0,0,10,0.75)',
+              zIndex: 199, backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)',
+            }}
+          />
+        )}
+
+        <div
+          className="mockup"
+          style={fullscreen ? {
+            position: 'fixed',
+            inset: '2vh 3vw',
+            height: '96vh',
+            width: '94vw',
+            zIndex: 200,
+            borderRadius: 'var(--r)',
+          } : {}}
+        >
           {/* Browser bar */}
           <div className="mock-bar">
             <div className="mock-dots">
-              <div className="mock-dot" />
+              <div
+                className="mock-dot"
+                onClick={toggleFull}
+                title={fullscreen ? 'Fechar tela cheia' : 'Expandir'}
+                style={{ cursor: 'pointer' }}
+              />
               <div
                 className="mock-dot"
                 onClick={shrink}
