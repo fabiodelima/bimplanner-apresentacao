@@ -51,7 +51,6 @@ export default function S05Revit() {
           border: '1px solid #333',
           borderRadius: 'var(--r)',
           overflow: 'hidden',
-          boxShadow: '0 50px 120px rgba(0,0,0,.5)',
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
