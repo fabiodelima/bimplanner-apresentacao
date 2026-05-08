@@ -21,54 +21,36 @@ export default function S06Market() {
           <div className="mkt-label">Posicionamento</div>
           <div className="mkt-chart">
             <svg viewBox="0 0 520 490" preserveAspectRatio="xMidYMid meet">
-              {/* BIMPlanner opportunity quadrant highlight */}
               <rect x="262" y="28" width="230" height="206" fill="rgba(232,201,122,0.07)" rx="4" />
-
-              {/* Axis lines */}
               <line x1="260" y1="24" x2="260" y2="462" stroke="rgba(248,250,255,0.22)" strokeWidth="1" />
               <line x1="24" y1="244" x2="496" y2="244" stroke="rgba(248,250,255,0.22)" strokeWidth="1" />
-
-              {/* Axis arrow tips */}
               <polygon points="260,18 254,28 266,28" fill="rgba(248,250,255,0.32)" />
               <polygon points="260,468 254,458 266,458" fill="rgba(248,250,255,0.32)" />
               <polygon points="502,244 492,238 492,250" fill="rgba(248,250,255,0.32)" />
               <polygon points="18,244 28,238 28,250" fill="rgba(248,250,255,0.32)" />
-
-              {/* Axis labels — esmaecidas */}
               <text x="260" y="14" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">BIM INTEGRADO</text>
               <text x="260" y="487" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">SEM BIM</text>
               <text x="28" y="238" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">GENÉRICO</text>
               <text x="492" y="238" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.38)" letterSpacing="2">VERTICAL AEC</text>
-
-              {/* Procore — raio 14 (+20% de 12) */}
               <circle cx="450" cy="58" r="14" fill="rgba(255,107,107,0.85)" />
               <text x="432" y="47" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="22" fill="rgba(255,107,107,1)">Procore</text>
-
-              {/* BIMPlanner — raio 16/22 (+20% de 13/18) */}
               <circle cx="370" cy="115" r="22" fill="none" stroke="rgba(232,201,122,0.4)" strokeWidth="1.5" />
               <circle cx="370" cy="115" r="16" fill="rgba(232,201,122,0.9)" />
               <text x="344" y="103" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="22" fill="rgba(232,201,122,1)" fontWeight="600">BIMPlanner</text>
-
-              {/* Sienge — raio 12; label à esquerda, longe de VERTICAL AEC */}
               <circle cx="308" cy="198" r="12" fill="rgba(168,192,224,0.55)" />
               <text x="292" y="184" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="22" fill="rgba(248,250,255,0.72)">Sienge</text>
-
-              {/* Monday — raio 12 */}
               <circle cx="148" cy="306" r="12" fill="rgba(168,192,224,0.45)" />
               <text x="166" y="311" fontFamily="DM Mono, monospace" fontSize="22" fill="rgba(248,250,255,0.62)">Monday</text>
-
-              {/* Trello — raio 12 */}
               <circle cx="78" cy="378" r="12" fill="rgba(168,192,224,0.45)" />
               <text x="96" y="383" fontFamily="DM Mono, monospace" fontSize="22" fill="rgba(248,250,255,0.62)">Trello</text>
             </svg>
           </div>
         </div>
 
-        {/* ── Right: tabela + stats em wrapper comum ── */}
+        {/* ── Right: label + table-wrap ── */}
         <div className="mkt-right">
           <div className="mkt-label">Benchmarking competitivo</div>
 
-          {/* wrapper garante que stats tenha exatamente a mesma largura da tabela */}
           <div className="mkt-table-wrap">
             <div className="mkt-table glass">
               <div className="mkt-thead">
@@ -87,8 +69,8 @@ export default function S06Market() {
               ))}
             </div>
 
+            {/* Stats: grid 3 colunas, alinhado com a tabela acima */}
             <div className="mkt-stats">
-              {/* TAM */}
               <div className="mkt-stat">
                 <svg className="mkt-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="12" width="4" height="10"/>
@@ -100,8 +82,6 @@ export default function S06Market() {
                   <span className="mkt-sl">TAM estimado<br />Brasil (AEC SaaS)</span>
                 </div>
               </div>
-              <div className="mkt-sdiv" />
-              {/* Crescimento */}
               <div className="mkt-stat">
                 <svg className="mkt-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
@@ -112,8 +92,6 @@ export default function S06Market() {
                   <span className="mkt-sl">crescimento BIM<br />software no Brasil<br /><span className="mkt-source">Cognitive Market Research</span></span>
                 </div>
               </div>
-              <div className="mkt-sdiv" />
-              {/* Preço */}
               <div className="mkt-stat">
                 <svg className="mkt-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/>
