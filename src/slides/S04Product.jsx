@@ -20,6 +20,24 @@ const GANTT_ROWS = [
   { label: 'GEST · Relatório',     start: 8, len: 4, color: 'rgba(168,192,224,.25)' },
 ];
 
+const chipStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  fontFamily: 'var(--mono)',
+  fontSize: 13,
+  letterSpacing: '.14em',
+  textTransform: 'uppercase',
+  color: 'var(--blue)',
+  background: 'rgba(168,192,224,0.15)',
+  border: '1px solid rgba(168,192,224,0.3)',
+  padding: '6px 16px',
+  borderRadius: 100,
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
+  whiteSpace: 'nowrap',
+};
+
 export default function S04Product() {
   const [view, setView] = useState('dashboard');
   const ganttRef = useRef(null);
@@ -54,7 +72,7 @@ export default function S04Product() {
       <div className="slide-inner prod-slide-inner">
         <div className="prod-head" style={{ alignItems: 'center' }}>
           <h2 className="head" style={{ marginBottom: 0 }}>Dashboard <em>feito para AEC</em>.</h2>
-          <div className="chip" style={{ marginBottom: 0 }}>Mockup funcional</div>
+          <div style={chipStyle}>Mockup funcional</div>
         </div>
 
         <div className="mockup">
