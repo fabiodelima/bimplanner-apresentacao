@@ -165,7 +165,7 @@
 }
 
 .s-patent .lead {
-  font-size: 34px;
+  font-size: 24px;
   color: var(--dim);
   line-height: 1.4;
   margin-bottom: 2px;
@@ -209,7 +209,7 @@
 .s-patent .princ-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   text-align: left;
 }
 
