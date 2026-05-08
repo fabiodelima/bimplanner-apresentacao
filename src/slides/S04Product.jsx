@@ -152,15 +152,15 @@ function MockupUI({ view, setView, scaleIdx, shrink, grow, onToggleFull, fullscr
           <div className="mock-main mock-view">
             <div className="mock-top"><div className="mock-pname">Todos os projetos</div><div className="mock-phase">5 ativos</div></div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 140px 130px 100px 90px', gap: 12, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 18px 8px', borderBottom: '1px solid var(--line)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 140px 130px 100px 90px', gap: 12, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 18px 8px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                 <span>Projeto</span><span>Cliente</span><span>Fase</span><span>Prazo</span><span>Status</span>
               </div>
               {[
-                { nome: 'Residência Alto Alegre',   cliente: 'Fam. Oliveira',     fase: 'ANTEPROJETO',  prazo: '18 mai', sc: 'sc-w',  label: '⚠ risco' },
-                { nome: 'Ed. Comercial Moinhos',    cliente: 'Construtora ABC',   fase: 'PROJ. EXEC.',  prazo: '02 jun', sc: 'sc-ok', label: '✓ ok' },
-                { nome: 'UBS Jardim Floresta',      cliente: 'Pref. Municipal',   fase: 'EST. PRELIM.', prazo: '30 mai', sc: 'sc-ok', label: '✓ ok' },
-                { nome: 'Reforma Escritório Centro',cliente: 'Escritório XYZ',    fase: 'ANTEPROJETO',  prazo: '10 jun', sc: 'sc-l',  label: '✕ atraso' },
-                { nome: 'Galpão Industrial RS-020', cliente: 'Indústria Sulina',  fase: 'PROJ. EXEC.',  prazo: '25 jun', sc: 'sc-ok', label: '✓ ok' },
+                { nome: 'Residência Alto Alegre',    cliente: 'Fam. Oliveira',    fase: 'ANTEPROJETO',  prazo: '18 mai', sc: 'sc-w',  label: '⚠ risco' },
+                { nome: 'Ed. Comercial Moinhos',     cliente: 'Construtora ABC',  fase: 'PROJ. EXEC.',  prazo: '02 jun', sc: 'sc-ok', label: '✓ ok' },
+                { nome: 'UBS Jardim Floresta',       cliente: 'Pref. Municipal',  fase: 'EST. PRELIM.', prazo: '30 mai', sc: 'sc-ok', label: '✓ ok' },
+                { nome: 'Reforma Escritório Centro', cliente: 'Escritório XYZ',   fase: 'ANTEPROJETO',  prazo: '10 jun', sc: 'sc-l',  label: '✕ atraso' },
+                { nome: 'Galpão Industrial RS-020',  cliente: 'Indústria Sulina', fase: 'PROJ. EXEC.',  prazo: '25 jun', sc: 'sc-ok', label: '✓ ok' },
               ].map((p, i) => (
                 <div key={i} className="mock-task" style={{ gridTemplateColumns: '1fr 140px 130px 100px 90px' }}>
                   <span style={{ fontWeight: 500 }}>{p.nome}</span>
@@ -179,35 +179,38 @@ function MockupUI({ view, setView, scaleIdx, shrink, grow, onToggleFull, fullscr
           <div className="mock-main mock-view">
             <div className="mock-top"><div className="mock-pname">Tarefas · Residência Alto Alegre</div><div className="mock-phase">● Anteprojeto</div></div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 14, flex: 1, minHeight: 0 }}>
-              <div style={{ background: 'var(--bp3)', border: '1px solid var(--lineB)', borderRadius: 'var(--rsm)', padding: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {/* Coluna A FAZER */}
+              <div style={{ background: '#28498c', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 'var(--rsm)', padding: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>A FAZER · 4</div>
                 {['Maquete eletrônica', 'Detalhamento hidráulico', 'Relatório de sondagem'].map((t, i) => (
-                  <div key={i} style={{ background: 'var(--bp2)', border: '1px solid var(--lineB)', borderRadius: 5, padding: '11px 13px' }}>
-                    <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>{t}</div>
+                  <div key={i} style={{ background: '#224589', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 5, padding: '11px 13px' }}>
+                    <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--white)', marginBottom: 4 }}>{t}</div>
                     <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)' }}>{['Louise G. · ARQ', 'Piero L. · HID', 'Fábio L. · EST'][i]}</div>
                   </div>
                 ))}
               </div>
-              <div style={{ background: 'var(--bp3)', border: '1px solid var(--amberB)', borderRadius: 'var(--rsm)', padding: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {/* Coluna EM ANDAMENTO */}
+              <div style={{ background: '#28498c', border: '1px solid rgba(232,201,122,0.25)', borderRadius: 'var(--rsm)', padding: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--amber)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>EM ANDAMENTO · 3</div>
-                <div style={{ background: 'var(--bp2)', border: '1px solid var(--amberB)', borderRadius: 5, padding: '11px 13px' }}>
-                  <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>Planta baixa definitiva</div>
+                <div style={{ background: '#224589', border: '1px solid rgba(232,201,122,0.25)', borderRadius: 5, padding: '11px 13px' }}>
+                  <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--white)', marginBottom: 4 }}>Planta baixa definitiva</div>
                   <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)' }}>Louise G. · ARQ</div>
                 </div>
-                <div style={{ background: 'var(--bp2)', border: '1px solid rgba(255,107,107,.3)', borderRadius: 5, padding: '11px 13px' }}>
-                  <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>Compat. hidráulica <span style={{ color: 'var(--red)', fontSize: 11 }}>⚠</span></div>
+                <div style={{ background: '#224589', border: '1px solid rgba(255,107,107,0.30)', borderRadius: 5, padding: '11px 13px' }}>
+                  <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--white)', marginBottom: 4 }}>Compat. hidráulica <span style={{ color: 'var(--red)', fontSize: 11 }}>⚠</span></div>
                   <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)' }}>Piero L. · HID</div>
                 </div>
-                <div style={{ background: 'var(--bp2)', border: '1px solid var(--lineB)', borderRadius: 5, padding: '11px 13px' }}>
-                  <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>Memorial descritivo v2</div>
+                <div style={{ background: '#224589', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 5, padding: '11px 13px' }}>
+                  <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--white)', marginBottom: 4 }}>Memorial descritivo v2</div>
                   <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)' }}>Valentina M. · ARQ</div>
                 </div>
               </div>
-              <div style={{ background: 'var(--bp3)', border: '1px solid rgba(107,207,127,.15)', borderRadius: 'var(--rsm)', padding: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {/* Coluna CONCLUÍDO */}
+              <div style={{ background: '#28498c', border: '1px solid rgba(107,207,127,0.15)', borderRadius: 'var(--rsm)', padding: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--green)', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>CONCLUÍDO · 5</div>
                 {['Levantamento topográfico', 'Programa de necessidades', 'Estudo de viabilidade'].map((t, i) => (
-                  <div key={i} style={{ background: 'var(--bp2)', border: '1px solid rgba(107,207,127,.15)', borderRadius: 5, padding: '11px 13px', opacity: .7 }}>
-                    <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>{t}</div>
+                  <div key={i} style={{ background: '#224589', border: '1px solid rgba(107,207,127,0.15)', borderRadius: 5, padding: '11px 13px', opacity: .7 }}>
+                    <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--white)', marginBottom: 4 }}>{t}</div>
                     <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)' }}>{['Fábio L. · EST', 'Louise G. · ARQ', 'Pâmela W. · GEST'][i]}</div>
                   </div>
                 ))}
@@ -246,7 +249,7 @@ function MockupUI({ view, setView, scaleIdx, shrink, grow, onToggleFull, fullscr
           <div className="mock-main mock-view">
             <div className="mock-top"><div className="mock-pname">Clientes</div><div className="mock-phase">6 cadastrados</div></div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 110px 110px 90px', gap: 12, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 18px 8px', borderBottom: '1px solid var(--line)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 110px 110px 90px', gap: 12, fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)', letterSpacing: '.1em', textTransform: 'uppercase', padding: '0 18px 8px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                 <span>Cliente</span><span>Projetos</span><span>Em aberto</span><span>Status</span>
               </div>
               {[
@@ -271,10 +274,10 @@ function MockupUI({ view, setView, scaleIdx, shrink, grow, onToggleFull, fullscr
         {view === 'revit' && (
           <div className="mock-main mock-view">
             <div className="mock-top"><div className="mock-pname">Revit Sync</div><span className="sc sc-ok" style={{ fontSize: 13 }}>⬡ Conectado</span></div>
-            <div style={{ background: 'var(--bp3)', border: '1px solid rgba(107,207,127,.2)', borderRadius: 'var(--rsm)', padding: '18px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: '#224589', border: '1px solid rgba(107,207,127,0.20)', borderRadius: 'var(--rsm)', padding: '18px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--faint)', letterSpacing: '.08em', marginBottom: 5 }}>MODELO ATIVO</div>
-                <div style={{ fontSize: 16, fontWeight: 500 }}>Residência Alto Alegre.rvt</div>
+                <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--white)' }}>Residência Alto Alegre.rvt</div>
               </div>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--green)' }}>Sync há 4 min</div>
             </div>
@@ -288,7 +291,7 @@ function MockupUI({ view, setView, scaleIdx, shrink, grow, onToggleFull, fullscr
               ].map((el, i) => (
                 <div key={i} className="mock-task" style={{ gridTemplateColumns: '36px 1fr 130px 90px' }}>
                   <span style={{ fontSize: 20 }}>{el.icon}</span>
-                  <span><span style={{ fontWeight: 500 }}>{el.elem}</span> · {el.loc}</span>
+                  <span style={{ color: 'var(--white)' }}><span style={{ fontWeight: 500 }}>{el.elem}</span> · {el.loc}</span>
                   <span className="mock-tph">{el.qtd}</span>
                   <span className={`sc ${el.sc}`}>{el.label}</span>
                 </div>
