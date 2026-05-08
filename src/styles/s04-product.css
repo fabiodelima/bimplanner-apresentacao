@@ -8,19 +8,18 @@
 /* ── Header row ── */
 .s-product .prod-head {
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 24px;
-}
-
-.s-product .prod-head .chip {
-  margin-bottom: 18px;
 }
 
 .s-product .prod-head .head {
   font-size: 72px;
   margin-bottom: 0;
   line-height: 1.02;
+  color: #f8faff;
+  flex-shrink: 0;
 }
 
 .s-product .prod-desc {
@@ -37,17 +36,23 @@
 
 /* ── Mockup shell ── */
 .s-product .mockup {
-  background: rgba(10, 30, 80, 0.4);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background: #0a1535;
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--r);
   overflow: hidden;
-  /* altura fixa baseada no menu Dashboard (o mais alto) */
-  height: 520px;
+  height: 680px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow 0.35s ease;
+}
+
+.s-product .mockup.popped {
+  transform: scale(1.1);
+  box-shadow: 0 40px 100px rgba(0,0,10,0.75), 0 0 0 1px rgba(168,192,224,0.2);
+  z-index: 200;
 }
 
 /* ── Browser bar ── */

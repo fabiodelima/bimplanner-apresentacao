@@ -83,28 +83,19 @@ export default function S04Product() {
           <div style={chipStyle}>Mockup funcional</div>
         </div>
 
-        {/* Fullscreen backdrop */}
+        {/* Pop backdrop */}
         {fullscreen && (
           <div
             onClick={toggleFull}
             style={{
-              position: 'fixed', inset: 0, background: 'rgba(0,0,10,0.75)',
-              zIndex: 199, backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)',
+              position: 'fixed', inset: 0,
+              background: 'rgba(0,0,10,0.6)',
+              zIndex: 199,
             }}
           />
         )}
 
-        <div
-          className="mockup"
-          style={fullscreen ? {
-            position: 'fixed',
-            inset: '2vh 3vw',
-            height: '96vh',
-            width: '94vw',
-            zIndex: 200,
-            borderRadius: 'var(--r)',
-          } : {}}
-        >
+        <div className={`mockup${fullscreen ? ' popped' : ''}`}>
           {/* Browser bar */}
           <div className="mock-bar">
             <div className="mock-dots">
