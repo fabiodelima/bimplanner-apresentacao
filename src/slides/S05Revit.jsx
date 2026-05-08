@@ -39,30 +39,30 @@ const RIBBON_TABS = ['Architecture', 'Structure', 'Annotate', 'Analyze', 'Collab
 
 const RIBBON_ICONS = [
   /* Architecture */
-  <IconMulti key="arch">
+  <IconMulti key="arch" size={28}>
     <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/>
     <path d="M2 22h20"/>
     <path d="M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/>
   </IconMulti>,
   /* Structure */
-  <Icon key="struct" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />,
+  <Icon key="struct" size={28} d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />,
   /* Annotate */
-  <Icon key="ann" d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />,
+  <Icon key="ann" size={28} d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />,
   /* Analyze */
-  <Icon key="analyze" d="M18 20V10M12 20V4M6 20v-6" />,
+  <Icon key="analyze" size={28} d="M18 20V10M12 20V4M6 20v-6" />,
   /* Collaborate */
-  <IconMulti key="collab">
+  <IconMulti key="collab" size={28}>
     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
     <circle cx="9" cy="7" r="4"/>
     <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
   </IconMulti>,
   /* View */
-  <IconMulti key="view">
+  <IconMulti key="view" size={28}>
     <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
     <circle cx="12" cy="12" r="3"/>
   </IconMulti>,
   /* BIMPlanner */
-  <IconMulti key="bim">
+  <IconMulti key="bim" size={28}>
     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
     <path d="M9 2h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
     <path d="M9 12h6M9 16h4"/>
@@ -165,12 +165,7 @@ export default function S05Revit() {
                   ? (tab === 'BIMPlanner' ? 'var(--amber)' : 'var(--blue)')
                   : '#aaa',
               }}>
-                {RIBBON_ICONS[i]
-                  ? (() => {
-                      const icon = RIBBON_ICONS[i];
-                      return { ...icon, props: { ...icon.props, size: 28 } };
-                    })()
-                  : null}
+                {RIBBON_ICONS[i]}
               </span>
               {tab}
             </div>
