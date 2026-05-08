@@ -27,12 +27,20 @@
   min-height: 0;
 }
 
-/* ── Right: table + stats ── */
+/* ── Right: label + wrapper ── */
 .s-market .mkt-right {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-height: 0;
+}
+
+/* Wrapper que agrupa tabela + stats: ambos alinham exatamente */
+.s-market .mkt-table-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   min-height: 0;
 }
 
@@ -57,18 +65,20 @@
   border-right: 1px solid rgba(255,255,255,0.07);
 }
 
+/* Header: DM Sans (não mono), 20px, #4468a2 */
 .s-market .mkt-thead {
   display: grid;
   grid-template-columns: 200px 1fr 160px 200px;
   padding: 17px 24px;
   min-height: 58px;
   align-items: center;
-  font-family: var(--mono);
-  font-size: 22px;
-  letter-spacing: 0.10em;
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: rgba(248,250,255,0.95);
-  background: #406096;
+  background: #4468a2;
   border-bottom: 1px solid rgba(232,201,122,0.35);
 }
 
@@ -122,7 +132,7 @@
   color: var(--amber);
 }
 
-/* ── Stats bar ── */
+/* ── Stats bar: fica dentro de mkt-table-wrap, herda largura ── */
 .s-market .mkt-stats {
   display: flex;
   align-items: stretch;
@@ -131,7 +141,6 @@
   flex: 1;
 }
 
-/* Cada stat: ícone à esquerda + texto à direita */
 .s-market .mkt-stat {
   flex: 1;
   display: flex;
@@ -145,7 +154,6 @@
   padding-left: 0;
 }
 
-/* Ícone: ocupa toda a altura do stat, cor âmbar, largura proporcional */
 .s-market .mkt-stat-icon {
   flex-shrink: 0;
   width: 36px;
@@ -202,7 +210,7 @@
   margin-top: 2px;
 }
 
-/* ── Positioning chart ── */
+/* ── Positioning chart: fundo #4468a2 (mesma cor do thead) ── */
 .s-market .mkt-chart {
   flex: 1;
   display: flex;
@@ -210,6 +218,10 @@
   justify-content: center;
   padding: 24px 20px;
   min-height: 0;
+  background: #4468a2;
+  border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: var(--glass-shadow);
 }
 
 .s-market .mkt-chart svg {
