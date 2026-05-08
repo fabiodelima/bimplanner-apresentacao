@@ -3,8 +3,6 @@ import '../styles/s01-cover.css';
 export default function S01Cover() {
   return (
     <>
-      <div className="cover-orb"></div>
-      <div className="cover-orb2"></div>
       <div className="capa-inner">
         <div className="capa-logo">
           <span className="bim">BIM</span><span className="planner">Planner</span>

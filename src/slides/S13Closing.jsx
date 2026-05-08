@@ -3,8 +3,6 @@ import '../styles/s13-closing.css';
 export default function S13Closing() {
   return (
     <>
-      <div className="closing-orb" />
-      <div className="closing-orb2" />
       <div className="closing-inner">
         <div className="closing-title-block">
           <h1 className="closing-obrigado">Obrigado.</h1>
