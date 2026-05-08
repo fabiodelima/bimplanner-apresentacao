@@ -33,6 +33,7 @@ export default function App() {
       scrollProgress: true,
       transition: 'fade',
       autoAnimate: true,
+      autoAnimateUnmatched: false,
       pdfSeparateFragments: false,
       controls: false,
       progress: false,
