@@ -14,6 +14,7 @@ const COSTS = [
     tag: 'FIXO',
     sub: 'MAIOR CUSTO',
     desc: '2 devs fullstack + 1 especialista Revit + 1 UX/design. Equity pool como retenção inicial.',
+    price: 'Estimativa: R$ 18k–28k/mês',
   },
   {
     icon: (
@@ -27,6 +28,7 @@ const COSTS = [
     tag: 'FIXO',
     sub: 'RECORRENTE',
     desc: 'Manutenção por versão Autodesk (anual). Custo previsível — planejado no roadmap.',
+    price: 'Estimativa: R$ 2k–4k/ano',
   },
   {
     icon: (
@@ -38,7 +40,8 @@ const COSTS = [
     title: 'Cloud Infra',
     tag: 'VARIÁVEL',
     sub: 'ESCALA',
-    desc: 'AWS / Azure. Escala com base de usuários — paga pelo uso. Estimativa inicial: R$ 800–2k/mês.',
+    desc: 'AWS / Azure. Escala com base de usuários — paga pelo uso.',
+    price: 'Estimativa: R$ 800–2k/mês',
   },
   {
     icon: (
@@ -52,6 +55,7 @@ const COSTS = [
     tag: 'VARIÁVEL',
     sub: 'POR USO',
     desc: 'APIs de LLM para priorização e alertas preditivos. Margem controlada por plano e cota.',
+    price: 'Estimativa: R$ 500–1,5k/mês',
   },
   {
     icon: (
@@ -63,6 +67,7 @@ const COSTS = [
     tag: 'FIXO',
     sub: 'CONTEÚDO',
     desc: 'SEO técnico AEC, YouTube, feiras FEICON e BIM World Brazil. PLG reduz CAC organicamente.',
+    price: 'Estimativa: R$ 1k–3k/mês',
   },
   {
     icon: (
@@ -74,6 +79,7 @@ const COSTS = [
     tag: 'FIXO',
     sub: 'SLA',
     desc: 'Onboarding dedicado plano Team, SLA por plano. Escala com a base — bot + humano híbrido.',
+    price: 'Estimativa: R$ 1,5k–4k/mês',
   },
 ];
 
@@ -95,12 +101,9 @@ export default function S10Costs() {
               <span className="costs-tag-sub">{c.sub}</span>
             </div>
             <p className="costs-desc">{c.desc}</p>
+            <div className="costs-price">{c.price}</div>
           </div>
         ))}
-      </div>
-
-      <div className="costs-footer">
-        Projeções financeiras (CAC, LTV, break-even) na próxima etapa — após validação beta com 30 escritórios.
       </div>
     </div>
   );
