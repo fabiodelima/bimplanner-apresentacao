@@ -85,10 +85,10 @@ export default function S08Framework() {
     <div className="slide-inner" style={{ justifyContent: 'flex-start', padding: '68px 90px 76px', display: 'flex', flexDirection: 'column', gap: 0 }}>
 
       {/* Header */}
-      <h2 className="head" style={{ marginBottom: 12, fontSize: 57 }}>
+      <h2 className="head" style={{ marginBottom: 12, fontSize: 74 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
-      <p style={{ fontSize: 21, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 960, marginBottom: 22 }}>
+      <p style={{ fontSize: 27, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 960, marginBottom: 22 }}>
         Avaliação nas <strong>seis dimensões</strong> do framework de Elementos Essenciais para Propostas de
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver as perguntas e respostas.
       </p>
@@ -131,20 +131,20 @@ export default function S08Framework() {
                 borderBottom: d.id < 5 ? '1px solid rgba(255,255,255,0.06)' : 'none',
               }}
             >
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 17, color: active === d.id ? 'var(--amber)' : 'var(--faint)', letterSpacing: '.06em', minWidth: 28, flexShrink: 0 }}>{d.n}</span>
-              <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: active === d.id ? 'var(--amber)' : 'rgba(248,250,255,0.6)' }}>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 22, color: active === d.id ? 'var(--amber)' : 'var(--faint)', letterSpacing: '.06em', minWidth: 28, flexShrink: 0 }}>{d.n}</span>
+              <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: 'var(--amber)' }}>
                 <Icon name={d.icon} size={26} color="currentColor" />
               </span>
               <span style={{
                 flex: 1,
-                fontSize: 18,
+                fontSize: 23,
                 color: active === d.id ? 'var(--amber)' : 'rgba(248,250,255,0.8)',
                 fontWeight: active === d.id ? 500 : 400,
                 lineHeight: 1.3,
               }}>{d.label}</span>
               <span style={{
                 fontFamily: 'var(--mono)',
-                fontSize: 14,
+                fontSize: 18,
                 padding: '5px 13px',
                 borderRadius: 100,
                 letterSpacing: '.04em',
@@ -166,37 +166,36 @@ export default function S08Framework() {
           flexDirection: 'column',
           overflowY: 'auto',
         }}>
-          {/* Pane header */}
+          {/* Pane header — centered */}
           <div style={{
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            gap: 24,
+            textAlign: 'center',
             padding: '32px 48px 24px',
             borderBottom: '1px solid rgba(255,255,255,0.09)',
             flexShrink: 0,
             background: 'rgba(255,255,255,0.02)',
+            gap: 10,
           }}>
-            <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: 'rgba(248,250,255,0.85)' }}>
-              <Icon name={dim.icon} size={52} color="currentColor" />
+            <span style={{ display: 'flex', alignItems: 'center', color: 'var(--amber)' }}>
+              <Icon name={dim.icon} size={56} color="currentColor" />
             </span>
-            <div>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 48, lineHeight: 1.05, marginBottom: 8 }}>{dim.label}</div>
-              <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 640, margin: 0 }}>{dim.summary}</p>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6,
-                fontFamily: 'var(--mono)',
-                fontSize: 16,
-                padding: '7px 18px',
-                borderRadius: 100,
-                marginTop: 14,
-                letterSpacing: '.06em',
-                color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
-                background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
-                border: `1px solid ${dim.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
-              }}>✓ {dim.badgeText}</span>
-            </div>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 62, lineHeight: 1.05 }}>{dim.label}</div>
+            <p style={{ fontSize: 26, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 640, margin: 0 }}>{dim.summary}</p>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontFamily: 'var(--mono)',
+              fontSize: 21,
+              padding: '7px 18px',
+              borderRadius: 100,
+              letterSpacing: '.06em',
+              color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
+              background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
+              border: `1px solid ${dim.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
+            }}>✓ {dim.badgeText}</span>
           </div>
 
           {/* Q&A list */}
@@ -214,9 +213,9 @@ export default function S08Framework() {
               >
                 <div style={{
                   fontFamily: 'var(--sans)',
-                  fontSize: 19,
+                  fontSize: 25,
                   fontWeight: 600,
-                  color: item.partial ? 'var(--amber)' : 'var(--blue)',
+                  color: item.partial ? 'var(--amber)' : 'rgba(248,250,255,0.92)',
                   marginBottom: 10,
                   display: 'flex',
                   gap: 10,
@@ -224,19 +223,19 @@ export default function S08Framework() {
                 }}>
                   <span style={{
                     fontFamily: 'var(--mono)',
-                    fontSize: 13,
-                    background: item.partial ? 'rgba(232,201,122,.1)' : 'var(--blueG)',
-                    border: `1px solid ${item.partial ? 'var(--amberB)' : 'rgba(126,184,247,.28)'}`,
-                    color: item.partial ? 'var(--amber)' : 'var(--blue)',
+                    fontSize: 17,
+                    background: item.partial ? 'rgba(232,201,122,.18)' : 'rgba(92,230,200,.15)',
+                    border: `1px solid ${item.partial ? 'var(--amberB)' : 'rgba(92,230,200,.4)'}`,
+                    color: item.partial ? 'var(--amber)' : '#5ce6c8',
                     padding: '4px 9px',
-                    borderRadius: 3,
+                    borderRadius: 4,
                     flexShrink: 0,
                     letterSpacing: '.06em',
                     lineHeight: 1,
                   }}>{item.n}</span>
                   {item.q}
                 </div>
-                <p style={{ fontSize: 17, color: 'var(--dim)', lineHeight: 1.7, paddingLeft: 40, margin: 0 }}>{item.a}</p>
+                <p style={{ fontSize: 22, color: 'var(--dim)', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
               </div>
             ))}
           </div>
