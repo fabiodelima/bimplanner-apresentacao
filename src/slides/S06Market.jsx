@@ -34,32 +34,32 @@ export default function S06Market() {
               <polygon points="506,240 496,235 496,245" fill="rgba(248,250,255,0.35)" />
               <polygon points="14,240 24,235 24,245" fill="rgba(248,250,255,0.35)" />
 
-              {/* Axis labels — larger and more visible */}
-              <text x="260" y="10" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="13" fill="rgba(248,250,255,0.7)" letterSpacing="1.8">BIM INTEGRADO</text>
-              <text x="260" y="479" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="13" fill="rgba(248,250,255,0.7)" letterSpacing="1.8">SEM BIM</text>
-              <text x="18" y="233" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="13" fill="rgba(248,250,255,0.7)" letterSpacing="1.8">GENÉRICO</text>
-              <text x="502" y="233" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="13" fill="rgba(248,250,255,0.7)" letterSpacing="1.8">VERTICAL AEC</text>
+              {/* Axis labels */}
+              <text x="260" y="12" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">BIM INTEGRADO</text>
+              <text x="260" y="478" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">SEM BIM</text>
+              <text x="18" y="234" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">GENÉRICO</text>
+              <text x="502" y="234" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">VERTICAL AEC</text>
 
               {/* Procore */}
-              <circle cx="458" cy="50" r="11" fill="rgba(255,107,107,0.85)" />
-              <text x="444" y="43" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="14" fill="rgba(255,107,107,1)">Procore</text>
+              <circle cx="458" cy="55" r="12" fill="rgba(255,107,107,0.85)" />
+              <text x="443" y="46" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(255,107,107,1)">Procore</text>
 
               {/* BIMPlanner — highlighted */}
-              <circle cx="378" cy="100" r="18" fill="none" stroke="rgba(232,201,122,0.4)" strokeWidth="1.5" />
-              <circle cx="378" cy="100" r="13" fill="rgba(232,201,122,0.9)" />
-              <text x="358" y="93" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="14" fill="rgba(232,201,122,1)" fontWeight="600">BIMPlanner</text>
+              <circle cx="378" cy="105" r="18" fill="none" stroke="rgba(232,201,122,0.4)" strokeWidth="1.5" />
+              <circle cx="378" cy="105" r="13" fill="rgba(232,201,122,0.9)" />
+              <text x="356" y="96" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(232,201,122,1)" fontWeight="600">BIMPlanner</text>
 
-              {/* Sienge — BIM parcial, levemente acima da linha horizontal */}
-              <circle cx="345" cy="210" r="9" fill="rgba(168,192,224,0.55)" />
-              <text x="360" y="214" fontFamily="DM Mono, monospace" fontSize="14" fill="rgba(248,250,255,0.65)">Sienge</text>
+              {/* Sienge — BIM parcial, acima da linha horizontal */}
+              <circle cx="345" cy="210" r="10" fill="rgba(168,192,224,0.55)" />
+              <text x="361" y="215" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(248,250,255,0.7)">Sienge</text>
 
               {/* Monday */}
-              <circle cx="152" cy="296" r="9" fill="rgba(168,192,224,0.45)" />
-              <text x="167" y="300" fontFamily="DM Mono, monospace" fontSize="14" fill="rgba(248,250,255,0.55)">Monday</text>
+              <circle cx="152" cy="296" r="10" fill="rgba(168,192,224,0.45)" />
+              <text x="168" y="301" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(248,250,255,0.6)">Monday</text>
 
               {/* Trello */}
-              <circle cx="84" cy="368" r="9" fill="rgba(168,192,224,0.45)" />
-              <text x="99" y="372" fontFamily="DM Mono, monospace" fontSize="14" fill="rgba(248,250,255,0.55)">Trello</text>
+              <circle cx="84" cy="368" r="10" fill="rgba(168,192,224,0.45)" />
+              <text x="100" y="373" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(248,250,255,0.6)">Trello</text>
             </svg>
           </div>
         </div>
@@ -92,8 +92,8 @@ export default function S06Market() {
             </div>
             <div className="mkt-sdiv" />
             <div className="mkt-stat">
-              <span className="mkt-sn mkt-sn-sm">+18% CAGR</span>
-              <span className="mkt-sl">crescimento<br />BIM software BR</span>
+              <span className="mkt-sn mkt-sn-sm">~15% CAGR</span>
+              <span className="mkt-sl">crescimento BIM<br />software no Brasil</span>
             </div>
             <div className="mkt-sdiv" />
             <div className="mkt-stat">
