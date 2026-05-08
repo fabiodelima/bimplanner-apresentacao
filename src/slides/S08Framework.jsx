@@ -77,21 +77,20 @@ export default function S08Framework() {
   const dim = DIMENSIONS[active];
 
   return (
-    <div className="slide-inner" style={{ justifyContent: 'flex-start', padding: '68px 90px 76px', display: 'flex', flexDirection: 'column', gap: 0 }}>
+    <div className="slide-inner" style={{ justifyContent: 'flex-start', padding: '44px 90px 48px', display: 'flex', flexDirection: 'column', gap: 0 }}>
 
       {/* Header */}
-      <h2 className="head" style={{ marginBottom: 12, fontSize: 44 }}>
+      <h2 className="head" style={{ marginBottom: 10, fontSize: 52 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
-      <p style={{ fontSize: 16, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 960, marginBottom: 22 }}>
+      <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 1100, marginBottom: 18 }}>
         Avaliação nas <strong>seis dimensões</strong> do framework de Elementos Essenciais para Propostas de
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver as perguntas e respostas.
       </p>
 
       {/* Body: nav + panel */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: '340px 1fr',
+        display: 'flex',
         flex: 1,
         minHeight: 0,
         border: '1px solid rgba(255,255,255,0.1)',
@@ -102,6 +101,8 @@ export default function S08Framework() {
 
         {/* Sidebar nav */}
         <nav style={{
+          width: '340px',
+          flexShrink: 0,
           background: 'rgba(8,18,55,0.55)',
           backdropFilter: 'var(--glass-blur)',
           WebkitBackdropFilter: 'var(--glass-blur)',
@@ -152,12 +153,15 @@ export default function S08Framework() {
 
         {/* Content panel */}
         <div style={{
+          flex: 1,
+          minWidth: 0,
+          minHeight: 0,
+          overflow: 'hidden',
           background: 'rgba(255,255,255,0.03)',
           backdropFilter: 'var(--glass-blur)',
           WebkitBackdropFilter: 'var(--glass-blur)',
           display: 'flex',
           flexDirection: 'column',
-          minHeight: 0,
         }}>
           {/* Pane header — horizontal, fixed */}
           <div style={{
