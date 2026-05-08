@@ -74,11 +74,31 @@ const DIMENSIONS = [
 
 export default function S08Framework() {
   const [active, setActive] = useState(0);
+  const [openItem, setOpenItem] = useState(null);
   const dim = DIMENSIONS[active];
 
-  return (
-    <div className="slide-inner" style={{ justifyContent: 'flex-start', padding: '44px 90px 48px', display: 'flex', flexDirection: 'column', gap: 0 }}>
+  function handleDimClick(id) {
+    setActive(id);
+    setOpenItem(null);
+  }
 
+  function handleItemClick(n) {
+    setOpenItem(prev => (prev === n ? null : n));
+  }
+
+  return (
+    <div
+      className="slide-inner"
+      style={{
+        justifyContent: 'flex-start',
+        padding: '44px 90px 48px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 0,
+        height: '100%',
+        boxSizing: 'border-box',
+      }}
+    >
       {/* Header */}
       <h2 className="head" style={{ marginBottom: 10, fontSize: 52 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
@@ -113,7 +133,7 @@ export default function S08Framework() {
           {DIMENSIONS.map((d) => (
             <div
               key={d.id}
-              onClick={() => setActive(d.id)}
+              onClick={() => handleDimClick(d.id)}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -168,24 +188,24 @@ export default function S08Framework() {
             display: 'flex',
             alignItems: 'flex-start',
             gap: 24,
-            padding: '32px 48px 24px',
+            padding: '20px 48px 16px',
             borderBottom: '1px solid rgba(255,255,255,0.09)',
             flexShrink: 0,
             background: 'rgba(255,255,255,0.02)',
           }}>
-            <span style={{ fontSize: 44, lineHeight: 1, flexShrink: 0, marginTop: 4 }}>{dim.icon}</span>
+            <span style={{ fontSize: 36, lineHeight: 1, flexShrink: 0, marginTop: 4 }}>{dim.icon}</span>
             <div>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 42, lineHeight: 1.05, marginBottom: 8 }}>{dim.label}</div>
-              <p style={{ fontSize: 16, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 680, margin: 0 }}>{dim.summary}</p>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 34, lineHeight: 1.05, marginBottom: 6 }}>{dim.label}</div>
+              <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 680, margin: 0 }}>{dim.summary}</p>
               <span style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
                 fontFamily: 'var(--mono)',
-                fontSize: 12,
-                padding: '5px 14px',
+                fontSize: 11,
+                padding: '4px 12px',
                 borderRadius: 100,
-                marginTop: 12,
+                marginTop: 8,
                 letterSpacing: '.06em',
                 color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
                 background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
@@ -194,48 +214,77 @@ export default function S08Framework() {
             </div>
           </div>
 
-          {/* Q&A list — scrollable */}
+          {/* Q&A accordion — scrollable */}
           <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto', flex: 1, minHeight: 0 }}>
-            {dim.qa.map((item) => (
-              <div
-                key={item.n}
-                style={{
-                  padding: '18px 48px',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                  borderLeft: `3px solid ${item.partial ? 'var(--amberD)' : 'transparent'}`,
-                  background: item.partial ? 'rgba(232,201,122,0.04)' : 'transparent',
-                  cursor: 'default',
-                  flexShrink: 0,
-                }}
-              >
-                <div style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: 15,
-                  fontWeight: 600,
-                  color: item.partial ? 'var(--amber)' : 'rgba(248,250,255,0.92)',
-                  marginBottom: 7,
-                  display: 'flex',
-                  gap: 10,
-                  alignItems: 'center',
-                  textAlign: 'left',
-                }}>
-                  <span style={{
-                    fontFamily: 'var(--mono)',
-                    fontSize: 10,
-                    background: item.partial ? 'rgba(232,201,122,.18)' : 'rgba(92,230,200,.15)',
-                    border: `1px solid ${item.partial ? 'var(--amberB)' : 'rgba(92,230,200,.4)'}`,
-                    color: item.partial ? 'var(--amber)' : '#5ce6c8',
-                    padding: '3px 7px',
-                    borderRadius: 4,
+            {dim.qa.map((item) => {
+              const isOpen = openItem === item.n;
+              return (
+                <div
+                  key={item.n}
+                  style={{
+                    borderBottom: '1px solid rgba(255,255,255,0.06)',
+                    borderLeft: `3px solid ${item.partial ? 'var(--amberD)' : 'transparent'}`,
+                    background: isOpen
+                      ? (item.partial ? 'rgba(232,201,122,0.07)' : 'rgba(255,255,255,0.04)')
+                      : (item.partial ? 'rgba(232,201,122,0.04)' : 'transparent'),
                     flexShrink: 0,
-                    letterSpacing: '.06em',
-                    lineHeight: 1,
-                  }}>{item.n}</span>
-                  {item.q}
+                    transition: 'background .2s',
+                  }}
+                >
+                  {/* Question row — always visible, clickable */}
+                  <div
+                    onClick={() => handleItemClick(item.n)}
+                    style={{
+                      padding: '13px 48px',
+                      cursor: 'pointer',
+                      fontFamily: 'var(--sans)',
+                      fontSize: 14,
+                      fontWeight: 600,
+                      color: item.partial ? 'var(--amber)' : 'rgba(248,250,255,0.92)',
+                      display: 'flex',
+                      gap: 10,
+                      alignItems: 'center',
+                      textAlign: 'left',
+                      userSelect: 'none',
+                    }}
+                  >
+                    <span style={{
+                      fontFamily: 'var(--mono)',
+                      fontSize: 10,
+                      background: item.partial ? 'rgba(232,201,122,.18)' : 'rgba(92,230,200,.15)',
+                      border: `1px solid ${item.partial ? 'var(--amberB)' : 'rgba(92,230,200,.4)'}`,
+                      color: item.partial ? 'var(--amber)' : '#5ce6c8',
+                      padding: '3px 7px',
+                      borderRadius: 4,
+                      flexShrink: 0,
+                      letterSpacing: '.06em',
+                      lineHeight: 1,
+                    }}>{item.n}</span>
+                    <span style={{ flex: 1 }}>{item.q}</span>
+                    <span style={{
+                      fontSize: 12,
+                      color: 'var(--faint)',
+                      flexShrink: 0,
+                      transition: 'transform .2s',
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      display: 'inline-block',
+                    }}>▾</span>
+                  </div>
+
+                  {/* Answer — visible only when open */}
+                  {isOpen && (
+                    <p style={{
+                      fontSize: 13,
+                      color: 'var(--dim)',
+                      lineHeight: 1.65,
+                      margin: 0,
+                      textAlign: 'left',
+                      padding: '0 48px 14px 84px',
+                    }}>{item.a}</p>
+                  )}
                 </div>
-                <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.65, margin: 0, textAlign: 'left', paddingLeft: 28 }}>{item.a}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
