@@ -67,15 +67,14 @@
   color: var(--white);
 }
 
-/* ── Mockup shell ── */
+/* ── Mockup shell — fundo navy escuro (app BIMPlanner) ── */
 .s-product .mockup {
-  background: var(--bp);
+  background: #0e1f42;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--r);
   overflow: hidden;
-  /* altura fixa baseada no menu Dashboard (o mais alto) */
   height: 545px;
   flex-shrink: 0;
   display: flex;
@@ -84,8 +83,8 @@
 
 /* ── Browser bar ── */
 .s-product .mock-bar {
-  background: var(--bp3);
-  border-bottom: 1px solid var(--lineB);
+  background: #0a1a38;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   padding: 12px 22px;
   display: flex;
   align-items: center;
@@ -110,8 +109,8 @@
 
 .s-product .mock-url {
   flex: 1;
-  background: var(--bp);
-  border: 1px solid var(--lineB);
+  background: #0e1f42;
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 100px;
   padding: 7px 18px;
   font-family: var(--mono);
@@ -123,7 +122,6 @@
 .s-product .mock-body {
   display: grid;
   grid-template-columns: 230px 1fr;
-  /* ocupa toda a altura restante do mockup */
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -131,24 +129,27 @@
 
 /* ── Sidebar ── */
 .s-product .mock-sb {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-right: 1px solid var(--lineB);
+  background: rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255,255,255,0.08);
   padding: 22px 0;
   display: flex;
   flex-direction: column;
 }
 
 .s-product .mock-sb-logo {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 21px;
+  font-weight: 800;
   padding: 0 22px 20px;
-  border-bottom: 1px solid var(--lineB);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   margin-bottom: 14px;
+  color: var(--white);
 }
 
 .s-product .mock-sb-logo span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
   color: var(--amber);
 }
 
@@ -169,7 +170,7 @@
 .s-product .mock-nav:hover,
 .s-product .mock-nav.on {
   color: var(--white);
-  background: rgba(200, 220, 255, .1);
+  background: rgba(68, 116, 197, 0.25);
 }
 
 /* ── Main content area ── */
@@ -178,7 +179,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  /* sempre ocupa toda a altura, sem encolher */
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -205,13 +205,14 @@
 .s-product .mock-pname {
   font-family: var(--serif);
   font-size: 26px;
+  color: var(--white);
 }
 
 .s-product .mock-phase {
   font-family: var(--mono);
   font-size: 14px;
-  background: rgba(200, 220, 255, .1);
-  border: 1px solid rgba(200, 220, 255, .15);
+  background: rgba(168, 192, 224, 0.12);
+  border: 1px solid rgba(168, 192, 224, 0.20);
   color: var(--blue);
   padding: 6px 14px;
   border-radius: 100px;
@@ -227,9 +228,8 @@
 }
 
 .s-product .mock-kpi {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  border: 1px solid var(--lineB);
+  background: rgba(68, 116, 197, 0.18);
+  border: 1px solid rgba(68, 116, 197, 0.30);
   border-radius: var(--rsm);
   padding: 18px;
 }
@@ -252,8 +252,8 @@
 
 /* ── AI alert bar ── */
 .s-product .mock-ai {
-  background: rgba(232, 201, 122, .08);
-  border: 1px solid rgba(232, 201, 122, .2);
+  background: rgba(68, 116, 197, 0.15);
+  border: 1px solid rgba(68, 116, 197, 0.25);
   border-radius: var(--rsm);
   padding: 16px 20px;
   display: flex;
@@ -266,11 +266,12 @@
   font-size: 20px;
   flex-shrink: 0;
   margin-top: 1px;
+  color: var(--white);
 }
 
 .s-product .mock-ai-text {
   font-size: 16px;
-  color: var(--amber);
+  color: var(--white);
   line-height: 1.55;
 }
 
@@ -291,7 +292,7 @@
   letter-spacing: .1em;
   text-transform: uppercase;
   padding: 0 18px 8px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .s-product .mock-task {
@@ -300,16 +301,18 @@
   gap: 12px;
   align-items: center;
   padding: 13px 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
+  background: rgba(68, 116, 197, 0.10);
+  border: 1px solid rgba(68, 116, 197, 0.20);
   border-radius: var(--rsm);
   font-size: 16px;
+  color: var(--white);
   cursor: pointer;
   transition: all .2s;
 }
 
 .s-product .mock-task:hover {
-  border-color: var(--lineC);
+  background: rgba(68, 116, 197, 0.22);
+  border-color: rgba(68, 116, 197, 0.40);
 }
 
 .s-product .mock-tph {
@@ -336,6 +339,6 @@
   width: fit-content;
 }
 
-.s-product .sc-ok { background: rgba(107,207,127,.1); color: var(--green); border: 1px solid rgba(107,207,127,.2); }
-.s-product .sc-w  { background: var(--amberG);        color: var(--amber); border: 1px solid var(--amberB); }
-.s-product .sc-l  { background: rgba(255,107,107,.1); color: var(--red);   border: 1px solid rgba(255,107,107,.2); }
+.s-product .sc-ok { background: rgba(107,207,127,.12); color: var(--green); border: 1px solid rgba(107,207,127,.25); }
+.s-product .sc-w  { background: rgba(232,201,122,.12); color: var(--amber); border: 1px solid rgba(232,201,122,.30); }
+.s-product .sc-l  { background: rgba(255,107,107,.12); color: var(--red);   border: 1px solid rgba(255,107,107,.25); }
