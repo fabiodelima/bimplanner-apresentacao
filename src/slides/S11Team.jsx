@@ -38,7 +38,7 @@ export default function S11Team() {
     <div className="slide-inner team-inner">
       <div className="team-head">
         <h2 className="head team-title">
-          Engenheiras, arquitetas e pesquisadores <em>que constroem.</em>
+          Engenheiros, arquitetos<br />e pesquisadores <em>que constroem.</em>
         </h2>
       </div>
 
