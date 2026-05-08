@@ -66,6 +66,34 @@
 /* Actions area: grows to fill remaining space */
 .toc-header-actions {
   flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 2px; /* align optically with toc-mark-sub baseline */
+}
+
+/* Generic action button used inside .toc-header-actions */
+.toc-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 7px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color .18s, border-color .18s, background .18s;
+  white-space: nowrap;
+}
+.toc-action-btn:hover {
+  color: var(--amber);
+  border-color: var(--amberB);
+  background: rgba(232,201,122,0.08);
 }
 
 .toc-mark {
