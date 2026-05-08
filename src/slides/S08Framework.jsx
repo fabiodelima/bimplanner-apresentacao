@@ -183,35 +183,38 @@ export default function S08Framework() {
           display: 'flex',
           flexDirection: 'column',
         }}>
-          {/* Pane header — horizontal, fixed */}
+          {/* Pane header — centralizado, ocupa toda a largura */}
           <div style={{
             display: 'flex',
-            alignItems: 'flex-start',
-            gap: 24,
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 8,
             padding: '20px 48px 16px',
             borderBottom: '1px solid rgba(255,255,255,0.09)',
             flexShrink: 0,
             background: 'rgba(255,255,255,0.02)',
+            textAlign: 'center',
+            width: '100%',
+            boxSizing: 'border-box',
           }}>
-            <span style={{ fontSize: 36, lineHeight: 1, flexShrink: 0, marginTop: 4 }}>{dim.icon}</span>
-            <div>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 34, lineHeight: 1.05, marginBottom: 6 }}>{dim.label}</div>
-              <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 680, margin: 0 }}>{dim.summary}</p>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6,
-                fontFamily: 'var(--mono)',
-                fontSize: 11,
-                padding: '4px 12px',
-                borderRadius: 100,
-                marginTop: 8,
-                letterSpacing: '.06em',
-                color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
-                background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
-                border: `1px solid ${dim.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
-              }}>✓ {dim.badgeText}</span>
-            </div>
+            <span style={{ fontSize: 36, lineHeight: 1 }}>{dim.icon}</span>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 34, lineHeight: 1.05, marginBottom: 4 }}>{dim.label}</div>
+            <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.5, margin: 0, width: '100%' }}>{dim.summary}</p>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontFamily: 'var(--mono)',
+              fontSize: 11,
+              padding: '4px 12px',
+              borderRadius: 100,
+              marginTop: 4,
+              letterSpacing: '.06em',
+              color: dim.badge === 'ok' ? 'var(--green)' : 'var(--amber)',
+              background: dim.badge === 'ok' ? 'rgba(107,207,127,.1)' : 'rgba(232,201,122,.1)',
+              border: `1px solid ${dim.badge === 'ok' ? 'rgba(107,207,127,.25)' : 'var(--amberB)'}`,
+            }}>✓ {dim.badgeText}</span>
           </div>
 
           {/* Q&A accordion — scrollable */}
