@@ -38,9 +38,15 @@ const chipStyle = {
   whiteSpace: 'nowrap',
 };
 
+const SCALES = [0.82, 1.0, 1.2];
+
 export default function S04Product() {
   const [view, setView] = useState('dashboard');
+  const [scaleIdx, setScaleIdx] = useState(1);
   const ganttRef = useRef(null);
+
+  const shrink = () => setScaleIdx(i => Math.max(0, i - 1));
+  const grow   = () => setScaleIdx(i => Math.min(SCALES.length - 1, i + 1));
 
   useEffect(() => {
     const container = ganttRef.current;
@@ -80,14 +86,24 @@ export default function S04Product() {
           <div className="mock-bar">
             <div className="mock-dots">
               <div className="mock-dot" />
-              <div className="mock-dot" />
-              <div className="mock-dot" />
+              <div
+                className="mock-dot"
+                onClick={shrink}
+                title="Reduzir escala"
+                style={{ cursor: scaleIdx > 0 ? 'pointer' : 'default', opacity: scaleIdx > 0 ? 1 : 0.4 }}
+              />
+              <div
+                className="mock-dot"
+                onClick={grow}
+                title="Aumentar escala"
+                style={{ cursor: scaleIdx < SCALES.length - 1 ? 'pointer' : 'default', opacity: scaleIdx < SCALES.length - 1 ? 1 : 0.4 }}
+              />
             </div>
             <div className="mock-url">{URL_LABELS[view]}</div>
           </div>
 
           {/* App body */}
-          <div className="mock-body">
+          <div className="mock-body" style={{ zoom: SCALES[scaleIdx] }}>
             {/* Sidebar */}
             <div className="mock-sb">
               <div className="mock-sb-logo">BIM<span>Planner</span></div>
