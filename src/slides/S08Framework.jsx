@@ -72,6 +72,11 @@ const DIMENSIONS = [
   },
 ];
 
+// Altura do slide = 100vh do container .slide-inner.
+// Header (h2 + p) ocupa ~130px; padding top+bottom = 44+48 = 92px.
+// O painel precisa de altura fixa = 100% - 130px - 92px ≈ calc(100% - 222px).
+// Usamos position absolute para desacoplar completamente do fluxo do conteúdo.
+
 export default function S08Framework() {
   const [active, setActive] = useState(0);
   const [openItem, setOpenItem] = useState(null);
@@ -97,22 +102,24 @@ export default function S08Framework() {
         gap: 0,
         height: '100%',
         boxSizing: 'border-box',
+        overflow: 'hidden',
       }}
     >
-      {/* Header */}
-      <h2 className="head" style={{ marginBottom: 10, fontSize: 52 }}>
+      {/* Header — tamanho fixo, não cresce */}
+      <h2 className="head" style={{ marginBottom: 10, fontSize: 52, flexShrink: 0 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
-      <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 1100, marginBottom: 18 }}>
+      <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 1100, marginBottom: 18, flexShrink: 0 }}>
         Avaliação nas <strong>seis dimensões</strong> do framework de Elementos Essenciais para Propostas de
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver as perguntas e respostas.
       </p>
 
-      {/* Body: nav + panel */}
+      {/* Body: nav + panel — ocupa EXATAMENTE o espaço restante, sem crescer */}
       <div style={{
         display: 'flex',
-        flex: 1,
-        minHeight: 0,
+        flex: '1 1 0',       /* cresce só até preencher, nunca além */
+        minHeight: 0,        /* impede que o flex item empurre o container */
+        height: 0,           /* força o flex a calcular a partir do pai, não do conteúdo */
         border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: 'var(--r)',
         overflow: 'hidden',
@@ -129,6 +136,7 @@ export default function S08Framework() {
           borderRight: '1px solid rgba(255,255,255,0.1)',
           display: 'flex',
           flexDirection: 'column',
+          height: '100%',
         }}>
           {DIMENSIONS.map((d) => (
             <div
@@ -171,11 +179,11 @@ export default function S08Framework() {
           ))}
         </nav>
 
-        {/* Content panel */}
+        {/* Content panel — altura 100% do body wrapper, nunca muda */}
         <div style={{
           flex: 1,
           minWidth: 0,
-          minHeight: 0,
+          height: '100%',
           overflow: 'hidden',
           background: 'rgba(255,255,255,0.03)',
           backdropFilter: 'var(--glass-blur)',
@@ -183,7 +191,7 @@ export default function S08Framework() {
           display: 'flex',
           flexDirection: 'column',
         }}>
-          {/* Pane header — horizontal, fixed */}
+          {/* Pane header — fixo, nunca rola */}
           <div style={{
             display: 'flex',
             alignItems: 'flex-start',
@@ -214,8 +222,15 @@ export default function S08Framework() {
             </div>
           </div>
 
-          {/* Q&A accordion — scrollable */}
-          <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto', flex: 1, minHeight: 0 }}>
+          {/* Q&A accordion — ocupa o restante do painel e rola internamente */}
+          <div style={{
+            flex: '1 1 0',
+            minHeight: 0,
+            height: 0,       /* mesmo truque: força cálculo pelo pai */
+            overflowY: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+          }}>
             {dim.qa.map((item) => {
               const isOpen = openItem === item.n;
               return (
