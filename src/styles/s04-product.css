@@ -13,9 +13,12 @@
 
 .mockup--popup {
   position: fixed;
-  inset: 3vh 4vw;
-  height: 94vh;
-  width: 92vw;
+  top: 3vh;
+  left: 4vw;
+  right: 4vw;
+  bottom: 96px;
+  width: auto;
+  height: auto;
   z-index: 9999;
   animation: popupIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
@@ -79,6 +82,11 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+}
+
+/* No modo popup, o mockup ocupa 100% do container posicionado */
+.mockup--popup.mockup {
+  height: 100%;
 }
 
 /* ── Browser bar / barra de título ── */
