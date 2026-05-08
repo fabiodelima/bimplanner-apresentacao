@@ -121,36 +121,33 @@ p.lead strong { color: var(--white); font-weight: 500; }
 }
 
 /* ─────────────────────────────────────────────────────────────
-   PRINT / PDF EXPORT
-   Instrução de uso:
-     - Clique em "Exportar PDF" no sumário (ou pressione Ctrl+P manualmente)
-     - O diálogo de impressão abre já com o layout correto
-     - Selecione "Salvar como PDF", marque "Gráficos de fundo"
+   PRINT / PDF EXPORT (via iframe oculto com ?print-pdf)
+   O reveal.js precisa inicializar já com ?print-pdf na URL para
+   renderizar todos os slides em modo de impressão corretamente.
+   O botão "Exportar PDF" injeta a apresentação num iframe oculto
+   com essa URL e dispara print() de dentro dele.
    ───────────────────────────────────────────────────────────── */
 @media print {
 
-  /* Página: proporção 16:9 em tamanho físico equivalente a 1920×1080 px
-     a 96 dpi → 20 in × 11.25 in */
+  /* Página 16:9 — 20in × 11.25in é 1920×1080 a 96 dpi */
   @page {
     size: 20in 11.25in;
     margin: 0;
   }
 
-  /* Força impressão de cores de fundo em todos os elementos */
+  /* Força impressão de backgrounds em todos os elementos */
   *, *::before, *::after {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  /* Fundo azul da apresentação, sem os grids decorativos */
+  /* Fundo azul sólido, sem os grids decorativos */
   html {
     background: #4474c5 !important;
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
-
-  /* Oculta os grids decorativos (::before e ::after do html) */
   html::before,
   html::after {
     display: none !important;
@@ -163,61 +160,64 @@ p.lead strong { color: var(--white); font-weight: 500; }
     overflow: hidden;
   }
 
-  /* Esconde UI: TOC, controles, chrome, barra de progresso */
+  /* Esconde UI: TOC, controles, chrome */
   .toc-btn,
   .toc-overlay,
   .chrome-ui,
+  #print-pdf-frame,
   .reveal .progress,
   .reveal .controls {
     display: none !important;
   }
 
-  /* Viewport e deck: ocupam exatamente a página */
+  /* Viewport e deck ocupam a página inteira */
   .reveal-viewport,
   .reveal {
-    width: 100vw !important;
-    height: 100vh !important;
+    width:    100vw !important;
+    height:   100vh !important;
     overflow: visible !important;
     position: static !important;
     transform: none !important;
   }
 
-  /* Contêiner de slides: empilha verticalmente para paginação */
+  /* Contêiner de slides: empilha para paginação */
   .reveal .slides {
     position: static !important;
-    width: 100% !important;
-    height: auto !important;
+    width:    100% !important;
+    height:   auto !important;
     transform: none !important;
     overflow: visible !important;
   }
 
-  /* Cada slide = uma página inteira 16:9, com fundo azul e conteúdo centralizado */
+  /* Cada slide = uma página 16:9 com fundo azul */
   section.slide {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    min-height: 100vh !important;
+    width:       100vw !important;
+    height:      100vh !important;
+    min-height:  100vh !important;
     background-color: #4474c5 !important;
     page-break-after: always;
-    break-after: page;
-    overflow: hidden !important;
-    position: relative !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    break-after:      page;
+    overflow:    hidden !important;
+    position:    relative !important;
+    transform:   none !important;
+    opacity:     1 !important;
+    visibility:  visible !important;
+    /* Não sobrescreve display/align do slide — cada layout gerencia os próprios */
   }
-
-  /* Último slide não precisa de quebra após ele */
   section.slide:last-child {
     page-break-after: avoid;
-    break-after: avoid;
+    break-after:      avoid;
   }
 
-  /* Garante que elementos com visibility:hidden (fragments) apareçam */
+  /* .slide-inner: ocupa a altura total da página para centralizar verticalmente */
+  section.slide .slide-inner {
+    min-height: 100vh !important;
+    justify-content: center !important;
+  }
+
+  /* Fragments ocultos devem aparecer no PDF */
   .reveal .slides section .fragment {
-    opacity: 1 !important;
+    opacity:    1 !important;
     visibility: visible !important;
   }
 }
