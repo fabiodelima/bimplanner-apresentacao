@@ -20,46 +20,46 @@ export default function S06Market() {
         <div className="mkt-left">
           <div className="mkt-label">Posicionamento</div>
           <div className="mkt-chart glass">
-            <svg viewBox="0 0 520 480" preserveAspectRatio="xMidYMid meet">
+            <svg viewBox="0 0 520 490" preserveAspectRatio="xMidYMid meet">
               {/* BIMPlanner opportunity quadrant highlight */}
-              <rect x="262" y="22" width="236" height="216" fill="rgba(232,201,122,0.06)" rx="4" />
+              <rect x="262" y="28" width="230" height="206" fill="rgba(232,201,122,0.06)" rx="4" />
 
               {/* Axis lines */}
-              <line x1="260" y1="20" x2="260" y2="460" stroke="rgba(248,250,255,0.2)" strokeWidth="1" />
-              <line x1="20" y1="240" x2="500" y2="240" stroke="rgba(248,250,255,0.2)" strokeWidth="1" />
+              <line x1="260" y1="24" x2="260" y2="462" stroke="rgba(248,250,255,0.2)" strokeWidth="1" />
+              <line x1="24" y1="244" x2="496" y2="244" stroke="rgba(248,250,255,0.2)" strokeWidth="1" />
 
               {/* Axis arrow tips */}
-              <polygon points="260,14 255,24 265,24" fill="rgba(248,250,255,0.35)" />
-              <polygon points="260,466 255,456 265,456" fill="rgba(248,250,255,0.35)" />
-              <polygon points="506,240 496,235 496,245" fill="rgba(248,250,255,0.35)" />
-              <polygon points="14,240 24,235 24,245" fill="rgba(248,250,255,0.35)" />
+              <polygon points="260,18 254,28 266,28" fill="rgba(248,250,255,0.35)" />
+              <polygon points="260,468 254,458 266,458" fill="rgba(248,250,255,0.35)" />
+              <polygon points="502,244 492,238 492,250" fill="rgba(248,250,255,0.35)" />
+              <polygon points="18,244 28,238 28,250" fill="rgba(248,250,255,0.35)" />
 
               {/* Axis labels */}
-              <text x="260" y="12" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">BIM INTEGRADO</text>
-              <text x="260" y="478" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">SEM BIM</text>
-              <text x="18" y="234" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">GENÉRICO</text>
-              <text x="502" y="234" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="15" fill="rgba(248,250,255,0.75)" letterSpacing="1.8">VERTICAL AEC</text>
+              <text x="260" y="14" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">BIM INTEGRADO</text>
+              <text x="260" y="487" textAnchor="middle" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">SEM BIM</text>
+              <text x="28" y="238" textAnchor="start" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">GENÉRICO</text>
+              <text x="492" y="238" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="17" fill="rgba(248,250,255,0.8)" letterSpacing="2">VERTICAL AEC</text>
 
               {/* Procore */}
-              <circle cx="458" cy="55" r="12" fill="rgba(255,107,107,0.85)" />
-              <text x="443" y="46" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(255,107,107,1)">Procore</text>
+              <circle cx="450" cy="58" r="12" fill="rgba(255,107,107,0.85)" />
+              <text x="434" y="49" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(255,107,107,1)">Procore</text>
 
               {/* BIMPlanner — highlighted */}
-              <circle cx="378" cy="105" r="18" fill="none" stroke="rgba(232,201,122,0.4)" strokeWidth="1.5" />
-              <circle cx="378" cy="105" r="13" fill="rgba(232,201,122,0.9)" />
-              <text x="356" y="96" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(232,201,122,1)" fontWeight="600">BIMPlanner</text>
+              <circle cx="370" cy="110" r="18" fill="none" stroke="rgba(232,201,122,0.4)" strokeWidth="1.5" />
+              <circle cx="370" cy="110" r="13" fill="rgba(232,201,122,0.9)" />
+              <text x="348" y="100" textAnchor="end" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(232,201,122,1)" fontWeight="600">BIMPlanner</text>
 
               {/* Sienge — BIM parcial, acima da linha horizontal */}
-              <circle cx="345" cy="210" r="10" fill="rgba(168,192,224,0.55)" />
-              <text x="361" y="215" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(248,250,255,0.7)">Sienge</text>
+              <circle cx="340" cy="214" r="10" fill="rgba(168,192,224,0.55)" />
+              <text x="356" y="219" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(248,250,255,0.72)">Sienge</text>
 
               {/* Monday */}
-              <circle cx="152" cy="296" r="10" fill="rgba(168,192,224,0.45)" />
-              <text x="168" y="301" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(248,250,255,0.6)">Monday</text>
+              <circle cx="148" cy="302" r="10" fill="rgba(168,192,224,0.45)" />
+              <text x="164" y="307" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(248,250,255,0.62)">Monday</text>
 
               {/* Trello */}
-              <circle cx="84" cy="368" r="10" fill="rgba(168,192,224,0.45)" />
-              <text x="100" y="373" fontFamily="DM Mono, monospace" fontSize="16" fill="rgba(248,250,255,0.6)">Trello</text>
+              <circle cx="78" cy="374" r="10" fill="rgba(168,192,224,0.45)" />
+              <text x="94" y="379" fontFamily="DM Mono, monospace" fontSize="18" fill="rgba(248,250,255,0.62)">Trello</text>
             </svg>
           </div>
         </div>
@@ -92,8 +92,8 @@ export default function S06Market() {
             </div>
             <div className="mkt-sdiv" />
             <div className="mkt-stat">
-              <span className="mkt-sn mkt-sn-sm">~15% CAGR</span>
-              <span className="mkt-sl">crescimento BIM<br />software no Brasil</span>
+              <span className="mkt-sn mkt-sn-sm">~15%</span>
+              <span className="mkt-sl">crescimento BIM<br />software no Brasil<br /><span className="mkt-source">Cognitive Market Research</span></span>
             </div>
             <div className="mkt-sdiv" />
             <div className="mkt-stat">
