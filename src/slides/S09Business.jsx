@@ -6,7 +6,7 @@ const PLANS = [
     badge: null,
     price: 'R$0',
     priceSub: 'para sempre · 1 usuário',
-    rationale: 'Custo zero maximiza adoção PLG. Cada autônomo no gratuito é um futuro Pro — ou um indicador dentro de um escritório que vai assinar.',
+    rationale: 'Custo zero maximiza adoção. Cada autônomo no gratuito é um futuro Pro — ou um indicador dentro de um escritório que vai assinar.',
     features: [
       { on: true,  label: 'Até 3 projetos ativos' },
       { on: true,  label: 'Dashboard com fases AEC' },
@@ -19,11 +19,11 @@ const PLANS = [
   },
   {
     name: 'Pro',
-    badge: 'Mais popular · PLG',
+    badge: 'Mais popular',
     featured: true,
     price: 'R$89',
     priceSub: 'por usuário/mês · até 10 pessoas',
-    rationale: 'R$89/usuário posiciona acima do Trello e abaixo da Asana — com diferencial vertical AEC (fases, disciplinas, IA) que nenhum competitor generalista oferece.',
+    rationale: 'R$89/usuário posiciona acima do Trello e abaixo do Procore — com diferencial vertical AEC (fases, disciplinas, IA) que nenhum competidor generalista oferece.',
     features: [
       { on: true,       label: 'Projetos ilimitados' },
       { on: true,       label: 'Dashboard com fases AEC' },
@@ -57,13 +57,11 @@ export default function S09Business() {
       <div className="biz-top">
         <h2 className="head">Do autônomo ao <em>escritório</em>.</h2>
         <p className="biz-lead">
-          Três fontes de receita: <strong>assinaturas recorrentes</strong> (planos Free / Pro / Team),{' '}
-          <strong>marketplace de templates AEC</strong> e{' '}
-          <strong>implementação corporativa</strong> para clientes sob contratos públicos.
+          Receita principal via <strong>assinaturas recorrentes</strong> (planos Free / Pro / Team).{' '}
+          <strong>Marketplace de plugins</strong> e{' '}
+          <strong>implementação corporativa customizada</strong> chegam em planos futuros.
         </p>
       </div>
-
-      <p className="biz-hint">Passe o cursor sobre o plano para ver a justificativa do preço.</p>
 
       <div className="biz-plans">
         {PLANS.map((plan) => (
