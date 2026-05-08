@@ -50,6 +50,24 @@
   padding: 48px 56px;
 }
 
+/* ─── TOC panel header ─── */
+.toc-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+/* Identity block: shrinks to fit its content */
+.toc-header-identity {
+  flex: 0 0 auto;
+}
+
+/* Actions area: grows to fill remaining space */
+.toc-header-actions {
+  flex: 1 1 auto;
+}
+
 .toc-mark {
   font-family: var(--sans);
   font-weight: 800;
@@ -71,7 +89,6 @@
   color: var(--faint);
   letter-spacing: .14em;
   text-transform: uppercase;
-  margin-bottom: 36px;
 }
 
 .toc-list { display: flex; flex-direction: column; gap: 2px; }

@@ -52,8 +52,14 @@ export default function Toc({ deckRef, currentIndex }) {
       {open && (
         <div className="toc-overlay" onClick={(e) => e.target === e.currentTarget && setOpen(false)}>
           <div className="toc-panel">
-            <div className="toc-mark">BIM<span>Planner</span></div>
-            <div className="toc-mark-sub">Pitch · Banca PCI0031 · Maio 2026</div>
+            <div className="toc-header">
+              <div className="toc-header-identity">
+                <div className="toc-mark">BIM<span>Planner</span></div>
+                <div className="toc-mark-sub">Pitch · PPGCI/UFRGS · Maio 2026</div>
+              </div>
+              {/* Espaço reservado para funções futuras */}
+              <div className="toc-header-actions" />
+            </div>
             <div className="toc-list">
               {slides.map((s, i) => (
                 <button
