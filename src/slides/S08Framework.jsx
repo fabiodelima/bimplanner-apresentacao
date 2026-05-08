@@ -48,12 +48,12 @@ export default function S08Framework() {
       <h2 className="head" style={{ marginBottom: 10, fontSize: 52 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
-      <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 1100, marginBottom: 18 }}>
+      <p style={{ fontSize: 25, color: 'var(--dim)', lineHeight: 1.5, marginBottom: 18, textAlign: 'center' }}>
         Avaliação nas <strong>seis dimensões</strong> do framework de Elementos Essenciais para Propostas de
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver o resumo.
       </p>
 
-      {/* Body: nav + panel — altura proporcional ao slide */}
+      {/* Body: nav + panel */}
       <div style={{
         display: 'flex',
         height: '52vh',
@@ -116,7 +116,7 @@ export default function S08Framework() {
           ))}
         </nav>
 
-        {/* Content panel — ocupa toda a altura do container, conteúdo centralizado */}
+        {/* Content panel — textos +25% */}
         <div style={{
           flex: 1,
           minWidth: 0,
@@ -132,15 +132,15 @@ export default function S08Framework() {
           boxSizing: 'border-box',
           gap: 20,
         }}>
-          <span style={{ fontSize: 56, lineHeight: 1 }}>{dim.icon}</span>
-          <div style={{ fontFamily: 'var(--serif)', fontSize: 42, lineHeight: 1.1 }}>{dim.label}</div>
-          <p style={{ fontSize: 18, color: 'var(--dim)', lineHeight: 1.7, margin: 0, maxWidth: 680 }}>{dim.summary}</p>
+          <span style={{ fontSize: 70, lineHeight: 1 }}>{dim.icon}</span>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 52, lineHeight: 1.1 }}>{dim.label}</div>
+          <p style={{ fontSize: 22, color: 'var(--dim)', lineHeight: 1.7, margin: 0, maxWidth: 720 }}>{dim.summary}</p>
           <span style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: 6,
             fontFamily: 'var(--mono)',
-            fontSize: 12,
+            fontSize: 15,
             padding: '6px 16px',
             borderRadius: 100,
             letterSpacing: '.06em',
