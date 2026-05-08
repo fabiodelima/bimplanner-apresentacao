@@ -86,43 +86,33 @@ export default function S08Framework() {
     setOpenItem(prev => (prev === n ? null : n));
   }
 
-  // padding top = 44px, h2 ~65px, marginBottom 10px, p ~50px, marginBottom 18px = ~187px
-  // padding bottom = 48px
-  // painel: top=187px, bottom=48px → altura = 100% - 235px
-  const HEADER_H = 187;
-  const PAD_B = 48;
-  const PAD_X = 90;
-
   return (
     <div
       className="slide-inner"
       style={{
-        position: 'relative',
-        padding: `44px ${PAD_X}px ${PAD_B}px`,
+        justifyContent: 'flex-start',
+        padding: '44px 90px 48px',
         display: 'flex',
         flexDirection: 'column',
+        gap: 0,
         height: '100%',
         boxSizing: 'border-box',
-        overflow: 'hidden',
       }}
     >
-      {/* Header — fluxo normal, empilha no topo */}
-      <h2 className="head" style={{ marginBottom: 10, fontSize: 52, flexShrink: 0 }}>
+      {/* Header */}
+      <h2 className="head" style={{ marginBottom: 10, fontSize: 52 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
-      <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 1100, marginBottom: 18, flexShrink: 0 }}>
+      <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.5, maxWidth: 1100, marginBottom: 18 }}>
         Avaliação nas <strong>seis dimensões</strong> do framework de Elementos Essenciais para Propostas de
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver as perguntas e respostas.
       </p>
 
-      {/* Body: posição absoluta → altura sempre fixa, independe do conteúdo */}
+      {/* Body: nav + panel */}
       <div style={{
-        position: 'absolute',
-        top: HEADER_H,
-        left: PAD_X,
-        right: PAD_X,
-        bottom: PAD_B,
         display: 'flex',
+        flex: 1,
+        minHeight: 0,
         border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: 'var(--r)',
         overflow: 'hidden',
@@ -139,7 +129,6 @@ export default function S08Framework() {
           borderRight: '1px solid rgba(255,255,255,0.1)',
           display: 'flex',
           flexDirection: 'column',
-          height: '100%',
         }}>
           {DIMENSIONS.map((d) => (
             <div
@@ -182,19 +171,19 @@ export default function S08Framework() {
           ))}
         </nav>
 
-        {/* Content panel — ocupa resto da largura, altura herdada do wrapper absoluto */}
+        {/* Content panel */}
         <div style={{
           flex: 1,
           minWidth: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
+          minHeight: 0,
           overflow: 'hidden',
           background: 'rgba(255,255,255,0.03)',
           backdropFilter: 'var(--glass-blur)',
           WebkitBackdropFilter: 'var(--glass-blur)',
+          display: 'flex',
+          flexDirection: 'column',
         }}>
-          {/* Pane header — fixo, não rola */}
+          {/* Pane header — horizontal, fixed */}
           <div style={{
             display: 'flex',
             alignItems: 'flex-start',
@@ -225,14 +214,8 @@ export default function S08Framework() {
             </div>
           </div>
 
-          {/* Q&A accordion — scroll interno, altura = resto do painel */}
-          <div style={{
-            flex: 1,
-            minHeight: 0,
-            overflowY: 'auto',
-            display: 'flex',
-            flexDirection: 'column',
-          }}>
+          {/* Q&A accordion — scrollable */}
+          <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto', flex: 1, minHeight: 0 }}>
             {dim.qa.map((item) => {
               const isOpen = openItem === item.n;
               return (
@@ -248,6 +231,7 @@ export default function S08Framework() {
                     transition: 'background .2s',
                   }}
                 >
+                  {/* Question row — always visible, clickable */}
                   <div
                     onClick={() => handleItemClick(item.n)}
                     style={{
@@ -287,6 +271,7 @@ export default function S08Framework() {
                     }}>▾</span>
                   </div>
 
+                  {/* Answer — visible only when open */}
                   {isOpen && (
                     <p style={{
                       fontSize: 13,
