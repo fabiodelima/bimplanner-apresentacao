@@ -187,15 +187,12 @@
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border-left: 5px solid var(--amber);
+  border-top: 1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-right: 1px solid rgba(255,255,255,0.07);
   border-radius: var(--r);
   box-shadow: var(--glass-shadow);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.s-patent .principle:hover {
-  transform: translateX(8px);
-  border-color: rgba(232,201,122,0.3);
 }
 
 .s-patent .princ-num {
