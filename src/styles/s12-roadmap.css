@@ -75,7 +75,7 @@
 
 .roadmap-period {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 22px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--faint);
@@ -83,7 +83,7 @@
 
 .roadmap-card-title {
   font-family: var(--sans);
-  font-size: 24px;
+  font-size: 48px;
   font-weight: 700;
   color: var(--white);
   margin: 0;
