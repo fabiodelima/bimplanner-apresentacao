@@ -63,6 +63,8 @@ const RIBBON_ICONS = [
   </IconMulti>,
 ];
 
+const SCALES = [0.72, 0.85, 1.0, 1.18, 1.38];
+
 const PLUGIN_TABS = ['TAREFAS', 'FASE', 'IA', 'SYNC'];
 
 const TASKS = [
@@ -70,7 +72,7 @@ const TASKS = [
   { done: false, name: 'Revisão de vedação e folga',  meta: 'Piero L. · em risco', risk: true },
 ];
 
-function RevitMockupContent({ activeTab, setActiveTab, selectedRibbon, setSelectedRibbon, onToggleFull }) {
+function RevitMockupContent({ activeTab, setActiveTab, selectedRibbon, setSelectedRibbon, onToggleFull, scaleIdx, shrink, grow }) {
   return (
     <>
       {/* Title bar */}
@@ -89,8 +91,16 @@ function RevitMockupContent({ activeTab, setActiveTab, selectedRibbon, setSelect
             title="Expandir / fechar"
             style={{ width: 14, height: 14, borderRadius: '50%', background: '#ff5f57', cursor: 'pointer' }}
           />
-          <div style={{ width: 14, height: 14, borderRadius: '50%', background: '#febc2e' }} />
-          <div style={{ width: 14, height: 14, borderRadius: '50%', background: '#28c840' }} />
+          <div
+            onClick={shrink}
+            title="Reduzir escala"
+            style={{ width: 14, height: 14, borderRadius: '50%', background: '#febc2e', cursor: scaleIdx > 0 ? 'pointer' : 'default', opacity: scaleIdx > 0 ? 1 : 0.4 }}
+          />
+          <div
+            onClick={grow}
+            title="Aumentar escala"
+            style={{ width: 14, height: 14, borderRadius: '50%', background: '#28c840', cursor: scaleIdx < SCALES.length - 1 ? 'pointer' : 'default', opacity: scaleIdx < SCALES.length - 1 ? 1 : 0.4 }}
+          />
         </div>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 14, color: '#888', letterSpacing: '.06em', flex: 1, textAlign: 'center' }}>
           Autodesk Revit 2025 — Residência Alto Alegre.rvt
@@ -163,6 +173,7 @@ function RevitMockupContent({ activeTab, setActiveTab, selectedRibbon, setSelect
         gridTemplateColumns: '1fr 400px',
         flex: 1,
         minHeight: 0,
+        zoom: SCALES[scaleIdx],
       }}>
         {/* Viewport */}
         <div style={{
@@ -202,13 +213,13 @@ function RevitMockupContent({ activeTab, setActiveTab, selectedRibbon, setSelect
             background: 'rgba(30,50,90,.7)',
             border: '1px solid rgba(126,184,247,.25)',
             borderRadius: 6,
-            padding: 16,
-            width: 280,
+            padding: 20,
+            width: 560,
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 6, marginBottom: 8 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginBottom: 10 }}>
               {[...Array(9)].map((_, i) => (
                 <div key={i} style={{
-                  height: 36,
+                  height: 72,
                   background: i === 4 ? 'rgba(232,201,122,.35)' : 'rgba(100,140,180,.12)',
                   border: `1px solid ${i === 4 ? 'var(--amber)' : 'rgba(126,184,247,.18)'}`,
                   borderRadius: 3,
@@ -216,10 +227,10 @@ function RevitMockupContent({ activeTab, setActiveTab, selectedRibbon, setSelect
                 }}>
                   {i === 4 && (
                     <div style={{
-                      position: 'absolute', top: -24, left: '50%', transform: 'translateX(-50%)',
+                      position: 'absolute', top: -28, left: '50%', transform: 'translateX(-50%)',
                       background: 'rgba(10,25,60,.95)', border: '1px solid var(--blue)',
-                      borderRadius: 4, padding: '3px 10px',
-                      fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--blue)',
+                      borderRadius: 4, padding: '4px 12px',
+                      fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--blue)',
                       whiteSpace: 'nowrap',
                     }}>Janela W-04 · AP</div>
                   )}
@@ -476,8 +487,11 @@ export default function S05Revit() {
   const [activeTab, setActiveTab] = useState('TAREFAS');
   const [selectedRibbon, setSelectedRibbon] = useState('BIMPlanner');
   const [fullscreen, setFullscreen] = useState(false);
+  const [scaleIdx, setScaleIdx] = useState(2);
 
   const toggleFull = () => setFullscreen(f => !f);
+  const shrink = () => setScaleIdx(i => Math.max(0, i - 1));
+  const grow   = () => setScaleIdx(i => Math.min(SCALES.length - 1, i + 1));
 
   useEffect(() => {
     if (!fullscreen) return;
@@ -491,7 +505,7 @@ export default function S05Revit() {
     return () => window.removeEventListener('keydown', onKey, true);
   }, [fullscreen]);
 
-  const contentProps = { activeTab, setActiveTab, selectedRibbon, setSelectedRibbon, onToggleFull: toggleFull };
+  const contentProps = { activeTab, setActiveTab, selectedRibbon, setSelectedRibbon, onToggleFull: toggleFull, scaleIdx, shrink, grow };
 
   return (
     <div className="slide-inner prod-slide-inner" style={{ padding: '36px 80px 36px' }}>
@@ -513,7 +527,7 @@ export default function S05Revit() {
 
       {/* Fullscreen portal */}
       {fullscreen && createPortal(
-        <div className="s-revit">
+        <div className="s-revit" style={{ color: 'var(--white)', fontFamily: 'var(--sans)' }}>
           <div className="mockup-backdrop" onClick={toggleFull} />
           <div className="mockup mockup--popup" style={{ ...mockupShellStyle, height: 'auto' }}>
             <RevitMockupContent {...contentProps} />
