@@ -12,7 +12,8 @@
 
 .team-title {
   max-width: 900px;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .team-grid {
@@ -31,7 +32,7 @@
 
 .team-role {
   font-family: var(--mono);
-  font-size: 13.75px;
+  font-size: 15.125px;
   letter-spacing: 0.14em;
   color: var(--faint);
   text-transform: uppercase;
@@ -39,7 +40,7 @@
 
 .team-name {
   font-family: var(--sans);
-  font-size: 27.5px;
+  font-size: 30.25px;
   font-weight: 600;
   color: var(--white);
   line-height: 1.2;
@@ -47,7 +48,7 @@
 
 .team-bio {
   font-family: var(--sans);
-  font-size: 18.75px;
+  font-size: 20.625px;
   font-weight: 400;
   color: var(--dim);
   line-height: 1.6;
