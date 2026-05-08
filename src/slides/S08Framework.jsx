@@ -72,11 +72,6 @@ const DIMENSIONS = [
   },
 ];
 
-// Altura do slide = 100vh do container .slide-inner.
-// Header (h2 + p) ocupa ~130px; padding top+bottom = 44+48 = 92px.
-// O painel precisa de altura fixa = 100% - 130px - 92px ≈ calc(100% - 222px).
-// Usamos position absolute para desacoplar completamente do fluxo do conteúdo.
-
 export default function S08Framework() {
   const [active, setActive] = useState(0);
   const [openItem, setOpenItem] = useState(null);
@@ -91,21 +86,27 @@ export default function S08Framework() {
     setOpenItem(prev => (prev === n ? null : n));
   }
 
+  // padding top = 44px, h2 ~65px, marginBottom 10px, p ~50px, marginBottom 18px = ~187px
+  // padding bottom = 48px
+  // painel: top=187px, bottom=48px → altura = 100% - 235px
+  const HEADER_H = 187;
+  const PAD_B = 48;
+  const PAD_X = 90;
+
   return (
     <div
       className="slide-inner"
       style={{
-        justifyContent: 'flex-start',
-        padding: '44px 90px 48px',
+        position: 'relative',
+        padding: `44px ${PAD_X}px ${PAD_B}px`,
         display: 'flex',
         flexDirection: 'column',
-        gap: 0,
         height: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
       }}
     >
-      {/* Header — tamanho fixo, não cresce */}
+      {/* Header — fluxo normal, empilha no topo */}
       <h2 className="head" style={{ marginBottom: 10, fontSize: 52, flexShrink: 0 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
@@ -114,12 +115,14 @@ export default function S08Framework() {
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver as perguntas e respostas.
       </p>
 
-      {/* Body: nav + panel — ocupa EXATAMENTE o espaço restante, sem crescer */}
+      {/* Body: posição absoluta → altura sempre fixa, independe do conteúdo */}
       <div style={{
+        position: 'absolute',
+        top: HEADER_H,
+        left: PAD_X,
+        right: PAD_X,
+        bottom: PAD_B,
         display: 'flex',
-        flex: '1 1 0',       /* cresce só até preencher, nunca além */
-        minHeight: 0,        /* impede que o flex item empurre o container */
-        height: 0,           /* força o flex a calcular a partir do pai, não do conteúdo */
         border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: 'var(--r)',
         overflow: 'hidden',
@@ -179,19 +182,19 @@ export default function S08Framework() {
           ))}
         </nav>
 
-        {/* Content panel — altura 100% do body wrapper, nunca muda */}
+        {/* Content panel — ocupa resto da largura, altura herdada do wrapper absoluto */}
         <div style={{
           flex: 1,
           minWidth: 0,
+          display: 'flex',
+          flexDirection: 'column',
           height: '100%',
           overflow: 'hidden',
           background: 'rgba(255,255,255,0.03)',
           backdropFilter: 'var(--glass-blur)',
           WebkitBackdropFilter: 'var(--glass-blur)',
-          display: 'flex',
-          flexDirection: 'column',
         }}>
-          {/* Pane header — fixo, nunca rola */}
+          {/* Pane header — fixo, não rola */}
           <div style={{
             display: 'flex',
             alignItems: 'flex-start',
@@ -222,11 +225,10 @@ export default function S08Framework() {
             </div>
           </div>
 
-          {/* Q&A accordion — ocupa o restante do painel e rola internamente */}
+          {/* Q&A accordion — scroll interno, altura = resto do painel */}
           <div style={{
-            flex: '1 1 0',
+            flex: 1,
             minHeight: 0,
-            height: 0,       /* mesmo truque: força cálculo pelo pai */
             overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
@@ -246,7 +248,6 @@ export default function S08Framework() {
                     transition: 'background .2s',
                   }}
                 >
-                  {/* Question row — always visible, clickable */}
                   <div
                     onClick={() => handleItemClick(item.n)}
                     style={{
@@ -286,7 +287,6 @@ export default function S08Framework() {
                     }}>▾</span>
                   </div>
 
-                  {/* Answer — visible only when open */}
                   {isOpen && (
                     <p style={{
                       fontSize: 13,
