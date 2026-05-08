@@ -2,9 +2,15 @@ const QUADRANTS = [
   {
     key: 'forcas',
     label: 'Forças',
-    dot: '#6bcf7f',
+    color: '#6bcf7f',
     accent: 'rgba(107,207,127,.15)',
     border: 'rgba(107,207,127,.25)',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z"
+          fill="#6bcf7f" stroke="#6bcf7f" strokeWidth="1" strokeLinejoin="round" />
+      </svg>
+    ),
     items: [
       'Patente INPI como barreira de entrada',
       'Terminologia AEC única no mercado LATAM',
@@ -15,9 +21,15 @@ const QUADRANTS = [
   {
     key: 'fraquezas',
     label: 'Fraquezas',
-    dot: '#ff6b6b',
+    color: '#ff6b6b',
     accent: 'rgba(255,107,107,.12)',
     border: 'rgba(255,107,107,.25)',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="10" cy="10" r="8" stroke="#ff6b6b" strokeWidth="1.5" />
+        <path d="M7 7L13 13M13 7L7 13" stroke="#ff6b6b" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    ),
     items: [
       'Equipe sem dev sênior full-time',
       'Dependência do ecossistema Autodesk',
@@ -28,9 +40,15 @@ const QUADRANTS = [
   {
     key: 'oportunidades',
     label: 'Oportunidades',
-    dot: '#e8c97a',
+    color: '#e8c97a',
     accent: 'rgba(232,201,122,.12)',
     border: 'rgba(232,201,122,.28)',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M10 3C6.13 3 3 6.13 3 10s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7Z" stroke="#e8c97a" strokeWidth="1.5" />
+        <path d="M10 7v4l2.5 2.5" stroke="#e8c97a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
     items: [
       '180k escritórios sem solução vertical BIM',
       'PLG + efeito de rede via plano Free',
@@ -41,9 +59,16 @@ const QUADRANTS = [
   {
     key: 'ameacas',
     label: 'Ameaças',
-    dot: '#ff6b6b',
+    color: '#ff6b6b',
     accent: 'rgba(255,107,107,.08)',
     border: 'rgba(255,107,107,.20)',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M10 3L18 17H2L10 3Z" stroke="#ff6b6b" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M10 9V12" stroke="#ff6b6b" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="10" cy="14.5" r="0.9" fill="#ff6b6b" />
+      </svg>
+    ),
     items: [
       'Autodesk pode lançar recurso similar',
       'Resistência cultural do setor AEC',
@@ -72,27 +97,44 @@ export default function S07Swot() {
           <div key={q.key} className="glass" style={{
             background: q.accent,
             borderColor: q.border,
-            padding: '32px 36px',
+            padding: '28px 36px',
             display: 'flex',
             flexDirection: 'column',
             gap: 20,
           }}>
+            {/* Cabeçalho do quadrante: ícone + label em destaque */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
               gap: 10,
-              fontFamily: 'var(--mono)',
-              fontSize: 13,
-              letterSpacing: '.12em',
-              textTransform: 'uppercase',
-              color: 'var(--faint)',
+              paddingBottom: 14,
+              borderBottom: `1px solid ${q.border}`,
             }}>
               <span style={{
-                width: 8, height: 8, borderRadius: '50%',
-                background: q.dot, flexShrink: 0,
-                boxShadow: `0 0 8px ${q.dot}`,
-              }} />
-              {q.label}
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 34,
+                height: 34,
+                borderRadius: 8,
+                background: q.accent,
+                border: `1px solid ${q.border}`,
+                flexShrink: 0,
+                filter: `drop-shadow(0 0 6px ${q.color}60)`,
+              }}>
+                {q.icon}
+              </span>
+              <span style={{
+                fontFamily: 'var(--sans)',
+                fontSize: 15,
+                fontWeight: 700,
+                letterSpacing: '.10em',
+                textTransform: 'uppercase',
+                color: q.color,
+                lineHeight: 1,
+              }}>
+                {q.label}
+              </span>
             </div>
 
             <ul style={{
