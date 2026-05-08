@@ -69,7 +69,7 @@
 
 /* ── Mockup shell ── */
 .s-product .mockup {
-  background: rgb(22, 58, 130);
+  background: var(--bp);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border: 1px solid var(--glass-border);
