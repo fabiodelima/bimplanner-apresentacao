@@ -1,13 +1,21 @@
 import { useState } from 'react';
 
+function Icon({ name, size = 28, color = 'currentColor' }) {
+  const p = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: color, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  switch (name) {
+    case 'lightbulb': return <svg {...p}><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>;
+    case 'users': return <svg {...p}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
+    case 'link2': return <svg {...p}><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg>;
+    case 'dollar': return <svg {...p}><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>;
+    case 'barchart': return <svg {...p}><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>;
+    case 'award': return <svg {...p}><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>;
+    default: return null;
+  }
+}
+
 const DIMENSIONS = [
   {
-    id: 0,
-    n: '01',
-    icon: '💡',
-    label: 'Inovação',
-    badge: 'ok',
-    badgeText: 'Atende',
+    id: 0, n: '01', icon: 'lightbulb', label: 'Inovação', badge: 'ok', badgeText: 'Atende',
     summary: 'Diferencial tecnológico, patenteabilidade, sustentabilidade e infraestrutura validados. TRL 4–5.',
     qa: [
       { n: 'P1', q: 'Inovação superior aos concorrentes?', a: 'Sim. Nenhum concorrente nacional reúne simultaneamente: terminologia AEC nativa, metodologia reflexiva patenteada e integração Revit. Os três juntos criam um diferencial defensável.' },
@@ -18,12 +26,7 @@ const DIMENSIONS = [
     ],
   },
   {
-    id: 1,
-    n: '02',
-    icon: '👥',
-    label: 'Cliente',
-    badge: 'ok',
-    badgeText: 'Atende',
+    id: 1, n: '02', icon: 'users', label: 'Cliente', badge: 'ok', badgeText: 'Atende',
     summary: 'Jornada completa mapeada, dor validada, cocriação via marketplace e feedback in-app.',
     qa: [
       { n: 'P8',  q: 'Canais de interação detalhados?', a: 'Jornada completa: descoberta (conteúdo, feiras, conselhos profissionais) → conversão freemium → retenção (chat, webinars, cursos) → expansão (upgrade de plano).' },
@@ -33,12 +36,7 @@ const DIMENSIONS = [
     ],
   },
   {
-    id: 2,
-    n: '03',
-    icon: '🤝',
-    label: 'Parceiros',
-    badge: 'ok',
-    badgeText: 'Atende',
+    id: 2, n: '03', icon: 'link2', label: 'Parceiros', badge: 'ok', badgeText: 'Atende',
     summary: 'Ecossistema com Autodesk, UFRGS, Hestia e escritórios beta. Internacionalização como roadmap.',
     qa: [
       { n: 'P12', q: 'Interação com parceiros estratégicos?', a: 'Autodesk via Programa de Desenvolvedores (ADP / API Forge/Revit). Escritórios parceiros via programa beta com acesso antecipado e co-desenvolvimento.' },
@@ -48,12 +46,7 @@ const DIMENSIONS = [
     ],
   },
   {
-    id: 3,
-    n: '04',
-    icon: '💰',
-    label: 'Finanças',
-    badge: 'partial',
-    badgeText: 'Parcial',
+    id: 3, n: '04', icon: 'dollar', label: 'Finanças', badge: 'partial', badgeText: 'Parcial',
     summary: '3 fontes de receita, modelo freemium com PLG, custos mapeados. Projeções na próxima etapa.',
     qa: [
       { n: 'P18', q: 'Investimento em capital humano?', a: 'Equipe mínima: 2 devs fullstack + especialista API Revit + UX/UI + CS/marketing. Maior custo fixo da operação.' },
@@ -63,12 +56,7 @@ const DIMENSIONS = [
     ],
   },
   {
-    id: 4,
-    n: '05',
-    icon: '📊',
-    label: 'Mercado',
-    badge: 'ok',
-    badgeText: 'Atende',
+    id: 4, n: '05', icon: 'barchart', label: 'Mercado', badge: 'ok', badgeText: 'Atende',
     summary: '180 mil escritórios, BIM obrigatório por decreto, estratégia PLG + inbound + outbound definida.',
     qa: [
       { n: 'P24', q: 'Proposta de valor simples e clara?', a: 'O único planner que fala a língua do arquiteto e do engenheiro, com gestão macro-micro e integração direta com o Revit. Compreensível para usuário técnico e investidores.' },
@@ -78,12 +66,7 @@ const DIMENSIONS = [
     ],
   },
   {
-    id: 5,
-    n: '06',
-    icon: '🏆',
-    label: 'Qualificação do time',
-    badge: 'ok',
-    badgeText: 'Atende',
+    id: 5, n: '06', icon: 'award', label: 'Qualificação do time', badge: 'ok', badgeText: 'Atende',
     summary: 'Multidisciplinar PPGCI/UFRGS — engenharia civil, arquitetura, gestão da inovação e transferência de tecnologia.',
     qa: [
       { n: 'P30', q: 'Experiência executiva do time?', a: 'Pós-graduandos PPGCI/UFRGS com formações em engenharia civil (Fábio, Piero, Pâmela), arquitetura (Franciele, Louise, Valentina) e gestão da inovação (Franciele, Pâmela).' },
@@ -102,10 +85,10 @@ export default function S08Framework() {
     <div className="slide-inner" style={{ justifyContent: 'flex-start', padding: '68px 90px 76px', display: 'flex', flexDirection: 'column', gap: 0 }}>
 
       {/* Header */}
-      <h2 className="head" style={{ marginBottom: 12, fontSize: 44 }}>
+      <h2 className="head" style={{ marginBottom: 12, fontSize: 57 }}>
         Framework <em>Elementos Essenciais</em> (Lago, 2022).
       </h2>
-      <p style={{ fontSize: 16, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 960, marginBottom: 22 }}>
+      <p style={{ fontSize: 21, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 960, marginBottom: 22 }}>
         Avaliação nas <strong>seis dimensões</strong> do framework de Elementos Essenciais para Propostas de
         Negócio de Startups (LAGO, 2022 — PPGEP/UFRGS). Selecione uma dimensão para ver as perguntas e respostas.
       </p>
@@ -138,8 +121,8 @@ export default function S08Framework() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 16,
-                padding: '0 28px',
+                gap: 14,
+                padding: '0 24px',
                 cursor: 'pointer',
                 transition: 'background .2s, border-color .2s',
                 borderLeft: `5px solid ${active === d.id ? 'var(--amber)' : 'transparent'}`,
@@ -148,8 +131,10 @@ export default function S08Framework() {
                 borderBottom: d.id < 5 ? '1px solid rgba(255,255,255,0.06)' : 'none',
               }}
             >
-              <span style={{ fontFamily: 'var(--mono)', fontSize: 13, color: active === d.id ? 'var(--amber)' : 'var(--faint)', letterSpacing: '.06em', minWidth: 24, flexShrink: 0 }}>{d.n}</span>
-              <span style={{ fontSize: 26, lineHeight: 1, flexShrink: 0 }}>{d.icon}</span>
+              <span style={{ fontFamily: 'var(--mono)', fontSize: 17, color: active === d.id ? 'var(--amber)' : 'var(--faint)', letterSpacing: '.06em', minWidth: 28, flexShrink: 0 }}>{d.n}</span>
+              <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: active === d.id ? 'var(--amber)' : 'rgba(248,250,255,0.6)' }}>
+                <Icon name={d.icon} size={26} color="currentColor" />
+              </span>
               <span style={{
                 flex: 1,
                 fontSize: 18,
@@ -159,8 +144,8 @@ export default function S08Framework() {
               }}>{d.label}</span>
               <span style={{
                 fontFamily: 'var(--mono)',
-                fontSize: 11,
-                padding: '4px 10px',
+                fontSize: 14,
+                padding: '5px 13px',
                 borderRadius: 100,
                 letterSpacing: '.04em',
                 flexShrink: 0,
@@ -184,24 +169,26 @@ export default function S08Framework() {
           {/* Pane header */}
           <div style={{
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             gap: 24,
             padding: '32px 48px 24px',
             borderBottom: '1px solid rgba(255,255,255,0.09)',
             flexShrink: 0,
             background: 'rgba(255,255,255,0.02)',
           }}>
-            <span style={{ fontSize: 44, lineHeight: 1, flexShrink: 0, marginTop: 2 }}>{dim.icon}</span>
+            <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center', color: 'rgba(248,250,255,0.85)' }}>
+              <Icon name={dim.icon} size={52} color="currentColor" />
+            </span>
             <div>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 42, lineHeight: 1.05, marginBottom: 8 }}>{dim.label}</div>
-              <p style={{ fontSize: 17, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 640, margin: 0 }}>{dim.summary}</p>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 48, lineHeight: 1.05, marginBottom: 8 }}>{dim.label}</div>
+              <p style={{ fontSize: 20, color: 'var(--dim)', lineHeight: 1.6, maxWidth: 640, margin: 0 }}>{dim.summary}</p>
               <span style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 6,
                 fontFamily: 'var(--mono)',
-                fontSize: 12,
-                padding: '5px 14px',
+                fontSize: 16,
+                padding: '7px 18px',
                 borderRadius: 100,
                 marginTop: 14,
                 letterSpacing: '.06em',
@@ -218,7 +205,7 @@ export default function S08Framework() {
               <div
                 key={item.n}
                 style={{
-                  padding: '20px 48px',
+                  padding: '22px 48px',
                   borderBottom: '1px solid rgba(255,255,255,0.06)',
                   borderLeft: `3px solid ${item.partial ? 'var(--amberD)' : 'transparent'}`,
                   background: item.partial ? 'rgba(232,201,122,0.04)' : 'transparent',
@@ -227,29 +214,29 @@ export default function S08Framework() {
               >
                 <div style={{
                   fontFamily: 'var(--sans)',
-                  fontSize: 15,
+                  fontSize: 19,
                   fontWeight: 600,
                   color: item.partial ? 'var(--amber)' : 'var(--blue)',
-                  marginBottom: 8,
+                  marginBottom: 10,
                   display: 'flex',
                   gap: 10,
-                  alignItems: 'flex-start',
+                  alignItems: 'center',
                 }}>
                   <span style={{
                     fontFamily: 'var(--mono)',
-                    fontSize: 10,
+                    fontSize: 13,
                     background: item.partial ? 'rgba(232,201,122,.1)' : 'var(--blueG)',
                     border: `1px solid ${item.partial ? 'var(--amberB)' : 'rgba(126,184,247,.28)'}`,
                     color: item.partial ? 'var(--amber)' : 'var(--blue)',
-                    padding: '3px 7px',
+                    padding: '4px 9px',
                     borderRadius: 3,
                     flexShrink: 0,
-                    marginTop: 2,
                     letterSpacing: '.06em',
+                    lineHeight: 1,
                   }}>{item.n}</span>
                   {item.q}
                 </div>
-                <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.7, paddingLeft: 26, margin: 0 }}>{item.a}</p>
+                <p style={{ fontSize: 17, color: 'var(--dim)', lineHeight: 1.7, paddingLeft: 40, margin: 0 }}>{item.a}</p>
               </div>
             ))}
           </div>
